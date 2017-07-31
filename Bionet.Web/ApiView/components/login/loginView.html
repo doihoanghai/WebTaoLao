@@ -1,0 +1,98 @@
+﻿
+<div class="user-login-5">
+    <div class="row bs-reset">
+        <div class="col-md-7 bs-reset">
+            <div class="login-bg" style="background-image:url(../assets/pages/img/login/bg1.jpg);">
+                <img class="login-logo" src="../assets/pages/img/login/logo.png" />
+            </div>
+        </div>
+        <div class="col-md-5 login-container bs-reset" style="background-color:white;">
+            <h1 style="font-family :'Bitter', serif;color : whitesmoke;text-align:center;border-bottom :double;border-bottom-color:white; font-size: 40px; font-weight: normal; line-height: 54px;background-color:midnightblue;margin-top:0;" >QUẢN LÝ SÀNG LỌC SƠ SINH</h1>
+            <div class="login-content">
+                <h1>Đăng nhập tài khoản</h1>
+                <form  class="login-form" role="form" ng-submit="loginSubmit()">
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="Tài khoản" ng-model="loginData.userName"  id ="username" required autofocus oninvalid="this.setCustomValidity('Tài khoản không được để trống')" oninput="this.setCustomValidity('')"/>
+                        </div>
+                        <div class="col-xs-9">
+                            <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="Mật khẩu" ng-model="loginData.password"  id ="password" required oninvalid="this.setCustomValidity('Mật khẩu không được để trống')" oninput="this.setCustomValidity('')"/>
+                        </div>
+                    </div>
+                    <!--<div class="alert alert-danger display-hide">
+                        <button class="close" data-close="alert"></button>
+                        <span>Vui lòng nhập tài khoản và mật khẩu. </span>
+                    </div>-->
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" />  Nhớ tài khoản
+                                </label>
+                            </div>
+                            <!--<div class="rem-password">
+                                <p>
+                                    Nhớ tài khoản
+                                    <input type="checkbox" class="rem-checkbox" />
+                                </p>
+                            </div>-->
+                        </div>
+                        <div class="col-sm-9 text-right">
+                            <button class="btn blue" type="submit">Đăng nhập</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- BEGIN FORGOT PASSWORD FORM -->
+                <!--<form class="forget-form" action="javascript:;" method="post">
+                    <h3 class="font-green">Quên mật khẩu ?</h3>
+                    <p> Vui lòng điền email để khôi phục mật khẩu. </p>
+                    <div class="form-group">
+                        <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" />
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" id="back-btn" class="btn grey btn-default">Bỏ qua</button>
+                        <button type="submit" class="btn blue btn-success uppercase pull-right">Gửi</button>
+                    </div>
+                </form>-->
+                <!-- END FORGOT PASSWORD FORM -->
+            </div>
+            <div class="login-footer">
+                <div class="row bs-reset">
+                    <div class="col-xs-4 bs-reset">
+                        <ul class="login-social">
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="icon-social-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="icon-social-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <i class="icon-social-dribbble"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-8 bs-reset">
+                        <div class="login-copyright text-right">
+                            <p>Copyright - 2017 &copy; PowerSoft JSC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<script>
+    $('.login-form input').keypress(function (e) {
+        if (e.which == 13) {
+            $('.login-form').submit();
+            return false;
+        }
+    });
+</script>-->
+<script src="../assets/pages/scripts/login-5.js"></script>

@@ -1,0 +1,64 @@
+﻿ <div class="page-content-fixed-header">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="javascript:;">Quản trị</a>
+        </li>
+        <li>
+            <a ui-sref="application_groups">Nhóm thành viên</a>
+        </li>
+        <li>Danh sách nhóm thành viên</li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-toolbar">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="btn-group">
+                        <button class="btn sbold green" ui-sref="add_application_group">
+                            <i class="fa fa-plus"></i>
+                            Thêm mới
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-offset-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="keyword" ng-model="keyword" placeholder="Từ khóa">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="search" ng-click="search()">Tìm kiếm</button>
+                        </span>
+                    </div>
+                </div>
+                <script>
+                    $('input[name="keyword"]').keypress(function (e) {
+                        if (e.which == 13) {
+                            $('#search').click();
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover" id="sample_1">
+            <thead>
+                <tr>
+                    <th style="width: 5%">ID</th>
+                    <th style="width:55%">Tên nhóm</th>
+                    <th style="width: 10%">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in data | filter:filterExpression">
+                    <td>{{item.ID}}</td>
+                    <td><a ui-sref="edit_application_group({id:item.ID})">{{item.Name}}</a></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" ui-sref="edit_application_group({id:item.ID})"><i class="fa fa-pencil"></i></button>
+                        <button class="btn  btn-sm btn-danger" ng-click="deleteItem(item.ID)"><i class="fa fa-trash"></i></button>
+                    </td>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="search(page)"></pager-directive>
+    </div>
+</div>

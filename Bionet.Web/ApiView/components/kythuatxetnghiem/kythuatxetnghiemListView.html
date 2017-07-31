@@ -1,0 +1,106 @@
+﻿<div class="page-content-fixed-header">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="javascript:;">Danh mục</a>
+        </li>
+        <li>
+            <a ui-sref="kythuatxetnghiem">Kỹ thuật xét nghiệm</a>
+        </li>
+        <li>Danh sách kỹ thuật xét nghiệm</li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-toolbar">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="btn-group">
+                        <button id="sample_editable_1_new" class="btn sbold green" ui-sref="kythuatxetnghiem_add">
+                            <i class="fa fa-plus"></i>
+                            Thêm mới
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-offset-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="keyword" ng-model="keyword" placeholder="Từ khóa">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="search" ng-click="search()">Tìm kiếm</button>
+                        </span>
+                    </div>
+                </div>
+                <script>
+                    $('input[name="keyword"]').keypress(function (e) {
+                        if (e.which == 13) {
+                            $('#search').click();
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="modal fade" id="thongsoxnModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr></tr>
+                            <tr>
+                                <th style="width:100px;" class="center"> Chọn </th>
+                                <th class="center"> Mã thông số  </th>
+                                <th class="center"> Tên thông số </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in service">
+                                <td style="width:100px;" class="center"> <input type="checkbox" checklist-model="serviceDetail" checklist-value="item" /></td>
+                                <td> {{item.IDThongSoXN}} </td>
+                                <td> {{item.TenThongSo}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align:center;background-color:gainsboro;padding:5px">
+                        <button class="btn btn-sm btn-circle btn-success" ng-click="Update()">Cập Nhật</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="table-responsive-fix">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        
+                        <th class="center"> Mã </th>
+                        <th class="center"> Tên kỹ thuật </th>
+                        <th class="center"> Tên hiển thị kỹ thuật </th>
+                        <th class="center"> isLocked </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in kythuatxetnghiem">
+                        
+                        <td> {{item.IDKyThuatXN}} </td>
+                        <td> {{item.TenKyThuat}} </td>
+                        <td> {{item.TenHienThiKyThuat}} </td>
+                        <td class="center">
+                            <span ng-class="{'badge bg-red':item.isLocked==false,'badge bg-green':item.isLocked==true}">
+                                {{item.isLocked | statusFilter}}
+                            </span>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-circle btn-success" ui-sref="kythuatxetnghiem_edit({id:item.RowIDKyThuatXn})"><i class="fa fa-pencil"></i> </button>
+                            <button class="btn btn-sm btn-info" id="btnDialog" data-toggle="modal" data-target="#thongsoxnModal" ng-click="loadthongsoxntheokythuat(item.IDKyThuatXN)"><i class="fa fa-list"></i></button>
+                            <button class="btn btn-sm btn-circle btn-danger" ng-click="deleteKyThuatXN(item.RowIDKyThuatXn)"><i class="fa fa-trash"></i> </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getkythuatxetnghiem(page)"></pager-directive>
+        </div>
+    </div>
+</div>

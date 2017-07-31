@@ -1,0 +1,75 @@
+﻿<div class="page-content-fixed-header">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="javascript:;">Danh mục</a>
+        </li>
+        <li>
+            <a ui-sref="chuongtrinh">Chương trình</a>
+        </li>
+        <li>Danh sách chương trình</li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-toolbar">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="btn-group">
+                        <button class="btn sbold green" ui-sref="chuongtrinh_add">
+                            <i class="fa fa-plus"></i>
+                            Thêm mới
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-offset-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="keyword" ng-model="keyword" placeholder="Từ khóa">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="search" ng-click="search()">Tìm kiếm</button>
+                        </span>
+                    </div>
+                </div>
+                <script>
+                    $('input[name="keyword"]').keypress(function (e) {
+                        if (e.which == 13) {
+                            $('#search').click();
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+        <table class="table table-bordered table-hover" id="sample_1">
+            <thead>
+                <tr>
+                    <th class="center"> Mã chương trình</th>
+                    <th class="center"> Tên chương trình </th>
+                    <th class="center"> Ngày tạo </th>
+                    <th class="center"> Ngày hết hiệu lực </th>
+                    <th class="center"> isLocked </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in chuongtrinh">
+                    <td> {{item.IDChuongTrinh}} </td>
+                    <td> {{item.TenChuongTrinh}} </td>
+                    <td class="center"> {{item.Ngaytao | date:'dd/MM/yyyy'}} </td>
+                    <td class="center"> {{item.NgayHetHieuLuc | date:'dd/MM/yyyy'}} </td>
+                    <td class="center">
+                        <span ng-class="{'badge bg-red':item.isLocked==false,'badge bg-green':item.isLocked==true}">
+                            {{item.isLocked | statusFilter}}
+                        </span>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-circle btn-success" ui-sref="chuongtrinh_edit({id:item.RowIDChuongTrinh})"><i class="fa fa-pencil"></i> </button>
+                        <button class="btn btn-sm btn-circle btn-danger" ng-click="deleteChuongTrinh(item.RowIDChuongTrinh)"><i class="fa fa-trash"></i> </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getchuongtrinh(page)"></pager-directive>
+    </div>
+</div>

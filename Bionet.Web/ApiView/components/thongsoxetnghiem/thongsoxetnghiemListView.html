@@ -1,0 +1,97 @@
+﻿<div class="page-content-fixed-header">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="javascript:;">Danh mục</a>
+        </li>
+        <li>
+            <a ui-sref="thongsoxetnghiem">Thông số xét nghiệm</a>
+        </li>
+        <li>Danh sách thông số xét nghiệm</li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-toolbar">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="btn-group">
+                        <button id="sample_editable_1_new" class="btn sbold green" ui-sref="thongsoxetnghiem_add">
+                            <i class="fa fa-plus"></i>
+                            Thêm mới
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3 col-md-offset-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="keyword" ng-model="keyword" placeholder="Từ khóa">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="search" ng-click="search()">Tìm kiếm</button>
+                        </span>
+                    </div>
+                </div>
+                <script>
+                    $('input[name="keyword"]').keypress(function (e) {
+                        if (e.which == 13) {
+                            $('#search').click();
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="table-responsive-fix">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        
+                        <th class="center"> Mã </th>
+                        <th class="center"> Tên thông số </th>
+                        <th class="center"> Đơn vị </th>
+                        <th class="center"> Gtrị min nữ </th>
+                        <th class="center"> Gtrị max nữ </th>
+                        <th class="center"> Gtrị tb nữ </th>
+                        <th class="center"> Gtrị mặc định </th>
+                        <th class="center"> Gtrị min nam </th>
+                        <th class="center"> Gtrị max nam </th>
+                        <th class="center"> Gtrị tb nam </th>
+                        <th class="center"> Nhóm </th>
+                        <th class="center"> Stt </th>
+                        <th class="center"> Giá trị </th>
+                        <th class="center"> isLocked </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in thongsoxetnghiem">
+                        
+                        <td> {{item.IDThongSoXN}} </td>
+                        <td> {{item.TenThongSo}} </td>
+                        <td> {{item.DonViTinh}} </td>
+                        <td class="center"> {{item.GiaTriMinNu}} </td>
+                        <td class="center"> {{item.GiaTriMaxNu}} </td>
+                        <td> {{item.GiaTriTrungBinhNu}} </td>
+                        <td> {{item.GiaTriMacDinh}} </td>
+                        <td class="center"> {{item.GiaTriMinNam}} </td>
+                        <td class="center"> {{item.GiaTriMaxNam}} </td>
+                        <td > {{item.GiaTriTrungBinhNam}} </td>
+                        <td class="center"> {{item.TenNhom}} </td>
+                        <td class="center"> {{item.Stt}} </td>
+                        <td class="center"> {{item.GiaTri}} </td>
+                        <td class="center">
+                            <span ng-class="{'badge bg-red':item.isLocked==false,'badge bg-green':item.isLocked==true}">
+                                {{item.isLocked | statusFilter}}
+                            </span>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-circle btn-success" ui-sref="thongsoxetnghiem_edit({id:item.RowIDThongSo})"><i class="fa fa-pencil"></i> </button>
+                            <button class="btn btn-sm btn-circle btn-danger" ng-click="deleteThongSoXN(item.RowIDThongSo)"><i class="fa fa-trash"></i> </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="getthongsoxetnghiem(page)"></pager-directive>
+        </div>
+    </div>
+</div>

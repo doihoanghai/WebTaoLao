@@ -1,0 +1,22 @@
+﻿using Bionet.Data.Infrastructure;
+using Bionet.Web.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bionet.Data.Repositories
+{
+    public interface IApplicationRoleGroupRepository : IRepository<ApplicationRoleGroup>
+    {
+
+    }
+    public class ApplicationRoleGroupRepository : RepositoryBase<ApplicationRoleGroup>, IApplicationRoleGroupRepository
+    {
+        public ApplicationRoleGroupRepository(IDbFactory dbFactory) : base(dbFactory)
+        {
+
+        }
+    }
+}

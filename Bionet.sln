@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionet.Data", "Bionet.Data\Bionet.Data.csproj", "{700945EF-3824-4599-BB77-F28B85CF2D71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionet.Model", "Bionet.Model\Bionet.Model.csproj", "{BCCFEFE4-A2A4-414D-A49C-1AE2D0520B6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionet.Service", "Bionet.Service\Bionet.Service.csproj", "{80643217-D318-46BE-81C2-05199A5C759D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionet.Web", "Bionet.Web\Bionet.Web.csproj", "{EF85D23A-4D3F-42C6-A40A-16973C335704}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionet.Common", "Bionet.Common\Bionet.Common.csproj", "{94707D32-AC79-4414-AA2C-49A628504B4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionet.UnitTest", "Bionet.UnitTest\Bionet.UnitTest.csproj", "{17DD93A7-32B8-4CB3-A4D4-7DA1D6CF9F4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionet.API", "Bionet.API\Bionet.API.csproj", "{2671D457-41D3-4E57-A086-8C655A3AC89F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{700945EF-3824-4599-BB77-F28B85CF2D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{700945EF-3824-4599-BB77-F28B85CF2D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{700945EF-3824-4599-BB77-F28B85CF2D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{700945EF-3824-4599-BB77-F28B85CF2D71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCCFEFE4-A2A4-414D-A49C-1AE2D0520B6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCCFEFE4-A2A4-414D-A49C-1AE2D0520B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCCFEFE4-A2A4-414D-A49C-1AE2D0520B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCCFEFE4-A2A4-414D-A49C-1AE2D0520B6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80643217-D318-46BE-81C2-05199A5C759D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80643217-D318-46BE-81C2-05199A5C759D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80643217-D318-46BE-81C2-05199A5C759D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80643217-D318-46BE-81C2-05199A5C759D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF85D23A-4D3F-42C6-A40A-16973C335704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF85D23A-4D3F-42C6-A40A-16973C335704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF85D23A-4D3F-42C6-A40A-16973C335704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF85D23A-4D3F-42C6-A40A-16973C335704}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94707D32-AC79-4414-AA2C-49A628504B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94707D32-AC79-4414-AA2C-49A628504B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94707D32-AC79-4414-AA2C-49A628504B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94707D32-AC79-4414-AA2C-49A628504B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17DD93A7-32B8-4CB3-A4D4-7DA1D6CF9F4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17DD93A7-32B8-4CB3-A4D4-7DA1D6CF9F4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17DD93A7-32B8-4CB3-A4D4-7DA1D6CF9F4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17DD93A7-32B8-4CB3-A4D4-7DA1D6CF9F4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2671D457-41D3-4E57-A086-8C655A3AC89F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2671D457-41D3-4E57-A086-8C655A3AC89F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2671D457-41D3-4E57-A086-8C655A3AC89F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2671D457-41D3-4E57-A086-8C655A3AC89F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

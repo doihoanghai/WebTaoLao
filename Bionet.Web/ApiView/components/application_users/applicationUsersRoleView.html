@@ -1,0 +1,54 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <h3>Cấp quyền cho người dùng {{userRole.FullName}}</h3>
+    </div>
+    <div class="col-md-4">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-blue-sharp"></i>
+                    <span class="caption-subject font-blue-sharp bold uppercase">Danh sách nghiệp vụ</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <select multiple class="form-control" ng-model="selectItem" ng-click="GetRole(selectItem)" ng-options="option.ID as option.Name for option in group" style="height:350px;">
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-social-dribbble font-blue-sharp"></i>
+                            <span class="caption-subject font-blue-sharp bold uppercase">Danh sách quyền sử dụng</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body"
+                         >
+                        <div class="checkbox" style="margin-left:20px;" ng-repeat="role in roles">
+                            <label>
+                                <input type="checkbox" checklist-model="userRole.Roles" checklist-value="role"> {{role.Description}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="center">
+            <button class="btn btn-default" ui-sref="application_users">Hủy Bỏ</button>
+            <button class="btn btn-success" ng-click="updateAccount()">Lưu</button>
+        </div>
+    </div>
+    <!-- END PAGE BASE CONTENT -->
+</div>
+<script>
+    $('#group').on('click','option', function(){
+        alert($(this).val());
+    });
+</script>

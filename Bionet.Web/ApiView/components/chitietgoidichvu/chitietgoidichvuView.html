@@ -1,0 +1,41 @@
+﻿<div class="row">
+    <div class="col-md-3">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th> Mã gói </th>
+                    <th> Tên gói </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in servicePackage"  ng-click="loadServiceByServicePackage(item.IDGoiDichVuChung, item.TenGoiDichVuChung)">
+                    <td> {{item.IDGoiDichVuChung}} </td>
+                    <td> {{item.TenGoiDichVuChung}} </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3 ng-show="serviceName != null">Đã chọn gói: <label class="color-red">{{serviceName}}</label></h3>
+        <h3 ng-show="serviceName == null">Chưa chọn gói dịch vụ</h3>
+    </div>
+    <div class="col-md-9">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th style="width:100px;" class="center"> Chọn </th>
+                    <th class="center"> Tên dịch vụ </th>
+                    <th class="center"> Tên hiển thị dịch vụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in service">
+                    <td style="width:100px;" class="center"> <input type="checkbox" checklist-model="serviceDetail" checklist-value="item"/></td>
+                    <td> {{item.TenDichVu}} </td>
+                    <td> {{item.TenHienThiDichVu}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12 center">
+        <button class="btn btn-success" ng-click="Update()">Lưu</button>
+    </div>
+</div>

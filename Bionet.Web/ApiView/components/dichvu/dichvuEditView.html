@@ -1,0 +1,79 @@
+﻿<div class="page-content-fixed-header">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="javascript:;">Danh mục</a>
+        </li>
+        <li>
+            <a ui-sref="dichvu">Dịch vụ</a>
+        </li>
+        <li>Chỉnh sửa dịch vụ</li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-blue-sharp"></i>
+                    <span class="caption-subject font-blue-sharp bold uppercase">Chỉnh sửa dịch vụ</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form class="form-horizontal" novalidate name="frmAddProductCategory" role="form" ng-submit="Updatedichvu()">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Tên dịch vụ:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="dichvu.TenDichVu" placeholder="Nhập tên dịch vụ">
+                                <input type="text" class="form-control" ng-model="dichvu.RowIDDichVu" style="display:none;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Tên hiển thị:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="dichvu.TenHienThiDichVu" placeholder="Nhập tên hiển thị">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Giá tiền:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="dichvu.GiaDichVu" placeholder="Nhập giá dịch vụ">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Nhóm:</label>
+                            <div class="col-md-4">
+                                <select name="parentId" class="form-control" ng-model="dichvu.MaNhom" ng-options="option.RowIDNhom as option.TenNhom for option in nhom">
+                                    <option value="">Chọn nhóm....</option>
+                                </select>
+                                <input type="hidden" name="parentId" ng-model="dichvu.MaNhom" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="status" ng-model="dichvu.isLocked" ng-checked="dichvu.isLocked"> isLocked
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="homeFlag" ng-model="dichvu.isGoiXn" ng-checked="dichvu.isGoiXn"> Gói xét nghiệm
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="center">
+                                <button type="submit" class="btn btn-success">Lưu</button>
+                                <button ui-sref="dichvu" class="btn btn-default">Bỏ qua</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

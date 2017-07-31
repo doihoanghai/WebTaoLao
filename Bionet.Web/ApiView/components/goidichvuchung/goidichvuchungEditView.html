@@ -1,0 +1,62 @@
+﻿<div class="page-content-fixed-header">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="javascript:;">Danh mục</a>
+        </li>
+        <li>
+            <a ui-sref="goidichvuchung">Gói dịch vụ chung</a>
+        </li>
+        <li>Chỉnh sửa gói dịch vụ</li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-blue-sharp"></i>
+                    <span class="caption-subject font-blue-sharp bold uppercase">Chỉnh sửa gói dịch vụ chung</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form class="form-horizontal" novalidate name="UpdateGoiDichVuChung" role="form" ng-submit="Updategoidichvuchung()">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Mã gói dịch vụ chung :</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" required name="MaGoiDV" ng-model="goidichvuchung.IDGoiDichVuChung" readonly placeholder="Nhập mã gói dịch vụ ">
+                                <span ng-show="Updategoidichvuchung.IDGoiDichVuChung.$invalid" class="color-red">Phải nhập mã gói dịch vụ</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Tên gói dịch vụ:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" required name="TenGoiDV" ng-model="goidichvuchung.TenGoiDichVuChung" placeholder="Nhập tên gói dịch vụ">
+                                <span ng-show="Updategoidichvuchung.TenGoiDichVuChung.$invalid" class="color-red">Phải nhập tên trung tâm</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Chiết khấu : </label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="goidichvuchung.ChietKhau" placeholder="Nhập số chiết khấu">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Đơn giá:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="goidichvuchung.DonGia" placeholder="Nhập đơn giá gói dịch vụ">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="center">
+                                <button type="submit" class="btn btn-success" ng-disabled="Updategoidichvuchung.$invalid">Lưu</button>
+                                <button ui-sref="goidichvuchung" class="btn btn-default">Bỏ qua</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

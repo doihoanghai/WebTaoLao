@@ -1,0 +1,50 @@
+﻿<div class="page-content-fixed-header">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="javascript:;">Quản trị</a>
+        </li>
+        <li>
+            <a ui-sref="application_groups">Nhóm thành viên</a>
+        </li>
+        <li>Thêm nhóm người dùng</li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-blue-sharp"></i>
+                    <span class="caption-subject font-blue-sharp bold uppercase">Thêm nhóm người dùng</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form class="form-horizontal" role="form" novalidate name="frmAddAppGroup" ng-submit="addAppGroup()">
+                    <div class="form-body">
+                        <div class="form-group" ng-class="{ 'has-error' : frmAddAppGroup.name.$invalid && !frmAddAppGroup.name.$pristine }">
+                            <label class="col-sm-2 control-label">Tên nhóm</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="name" class="form-control"
+                                       required reqired-message="Tên nhóm bắt buộc." ng-model="group.Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10" ng-repeat="role in roles">
+                                <label>
+                                    <input type="checkbox" checklist-model="group.Roles" checklist-value="role"> {{role.Description}}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <a ui-sref="application_groups" class="btn btn-default">Hủy bỏ</a>
+                                <input type="submit" ng-disabled="frmAddAppGroup.$invalid" class="btn btn-primary" value="Lưu lại" />
+                            </div>
+                        </div>
+                    </div><!-- /.box-body -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

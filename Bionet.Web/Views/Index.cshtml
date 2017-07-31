@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Bionet | Sàng lọc trẻ sơ sinh</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <link href="~/assets/libs/angular-loading-bar/build/loading-bar.css" rel="stylesheet" />
+    <link href="~/assets/libs/toastr/toastr.css" rel="stylesheet" />
+    <link href="~/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="~/assets/pages/css/datepicker.css" rel="stylesheet" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="~/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="~/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="~/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <link href="~/assets/layouts/layout6/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/layouts/layout6/css/custom.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/assets/global/plugins/bootstrap-clockpicker/css/bootstrap-clockpicker.css" rel="stylesheet" />
+    <!-- END THEME LAYOUT STYLES -->
+    <link href="~/assets/styles/style.css" rel="stylesheet" />
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="~/assets/pages/css/login-5.min.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL STYLES -->
+
+</head>
+<!-- END HEAD -->
+<body class="" ng-app="bionet" ng-controller="rootController">
+    <!-- BEGIN HEADER -->
+    <div ui-view></div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <!-- END THEME LAYOUT SCRIPTS -->
+    <script src="../assets/global/plugins/moment.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script src="~/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+    <script src="~/assets/global/plugins/bootstrap-clockpicker/js/bootstrap-clockpicker.js"></script>
+    <!-- BEGIN THEME GLOBAL SCRIPTS -->
+    <script src="../assets/global/scripts/app.min.js"></script>
+    <script src="~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <!-- END CORE PLUGINS -->
+    <script src="~/assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+    <!-- BEGIN THEME GLOBAL SCRIPTS -->
+    <!--Include plugin-->
+    <script src="~/assets/libs/angular/angular.js"></script>
+    <script src="~/assets/libs/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="~/assets/libs/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="~/assets/libs/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="~/assets/libs/toastr/toastr.js"></script>
+    <script src="~/assets/libs/bootbox/bootbox.js"></script>
+    <script src="~/assets/libs/ngBootbox/ngBootbox.js"></script>
+    <script src="~/assets/libs/checklist-model/checklist-model.js"></script>
+
+    <script src="~/ApiView/shared/modules/bionet.common.js"></script>
+    <script src="~/ApiView/shared/services/apiService.js"></script>
+    <script src="~/ApiView/shared/services/notificationService.js"></script>
+    <script src="~/ApiView/shared/services/authenticationService.js"></script>
+    <script src="~/ApiView/shared/services/authData.js"></script>
+    <script src="~/ApiView/shared/services/loginService.js"></script>
+    <script src="~/ApiView/shared/services/commonService.js"></script>
+    <script src="~/ApiView/shared/app.js"></script>
+    <script src="~/ApiView/shared/filters/statusFilter.js"></script>
+    <script src="~/ApiView/shared/directives/pagerDirective.js"></script>
+    <script src="~/assets/libs/angular-sanitize/angular-sanitize.min.js"></script>
+    <!-- Account -->
+    <script src="~/ApiView/components/account/account.module.js"></script>
+    <script src="~/ApiView/components/account/accountPasswordController.js"></script>
+    <!-- User -->
+    <script src="~/ApiView/components/application_users/applicationUsers.module.js"></script>
+    <script src="~/ApiView/components/application_users/applicationUserListController.js"></script>
+    <script src="~/ApiView/components/application_users/applicationUserEditController.js"></script>
+    <script src="~/ApiView/components/application_users/applicationUserAddController.js"></script>
+    <script src="~/ApiView/components/application_users/applicationUsersRoleController.js"></script>
+    <!-- User Role -->
+    <script src="~/ApiView/components/application_roles/applicationRoles.module.js"></script>
+    <script src="~/ApiView/components/application_roles/applicationRoleListController.js"></script>
+    <script src="~/ApiView/components/application_roles/applicationRoleEditController.js"></script>
+    <script src="~/ApiView/components/application_roles/applicationRoleAddController.js"></script>
+    <!-- User Groups -->
+    <script src="~/ApiView/components/application_groups/applicationGroups.module.js"></script>
+    <script src="~/ApiView/components/application_groups/applicationGroupListController.js"></script>
+    <script src="~/ApiView/components/application_groups/applicationGroupEditController.js"></script>
+    <script src="~/ApiView/components/application_groups/applicationGroupAddController.js"></script>
+    <!-- Chi tiết gói dịch vụ -->
+    <script src="~/ApiView/components/chitietgoidichvu/chitietgoidichvu.module.js"></script>
+    <script src="~/ApiView/components/chitietgoidichvu/chitietgoidichvuController.js"></script>
+    <!-- Phiếu sàng lọc -->
+    <script src="~/ApiView/components/phieusangloc/phieusangloc.module.js"></script>
+    <script src="~/ApiView/components/phieusangloc/phieusanglocAddController.js"></script>
+    <script src="~/ApiView/components/phieusangloc/phieusanglocEditController.js"></script>
+    <script src="~/ApiView/components/phieusangloc/phieusanglocListController.js"></script>
+    <!-- dịch vụ -->
+    <script src="~/ApiView/components/login/loginController.js"></script>
+    <script src="~/ApiView/components/home/homeController.js"></script>
+    <script src="~/ApiView/components/home/rootController.js"></script>
+    <script src="~/ApiView/components/dichvu/dichvu.module.js"></script>
+    <script src="~/ApiView/components/dichvu/dichvuListController.js"></script>
+    <script src="~/ApiView/components/dichvu/dichvuAddController.js"></script>
+    <script src="~/ApiView/components/dichvu/dichvuEditController.js"></script>
+    <!-- thông số xét nghiệm -->
+    <script src="~/ApiView/components/thongsoxetnghiem/thongsoxetnghiem.module.js"></script>
+    <script src="~/ApiView/components/thongsoxetnghiem/thongsoxetnghiemListController.js"></script>
+    <script src="~/ApiView/components/thongsoxetnghiem/thongsoxetnghiemEditController.js"></script>
+    <script src="~/ApiView/components/thongsoxetnghiem/thongsoxetnghiemAddController.js"></script>
+    <!-- trung tâm -->
+    <script src="~/ApiView/components/trungtam/trungtamsangloc.module.js"></script>
+    <script src="~/ApiView/components/trungtam/trungtamsanglocAddController.js"></script>
+    <script src="~/ApiView/components/trungtam/trungtamsanglocEditController.js"></script>
+    <script src="~/ApiView/components/trungtam/trungtamsanglocListController.js"></script>
+    <!-- Chi cục -->
+    <script src="~/ApiView/components/chicuc/chicuc.module.js"></script>
+    <script src="~/ApiView/components/chicuc/chicucAddController.js"></script>
+    <script src="~/ApiView/components/chicuc/chicucEditController.js"></script>
+    <script src="~/ApiView/components/chicuc/chicucListController.js"></script>
+    <!-- Đơn vị cơ sở -->
+    <script src="~/ApiView/components/donvicoso/donvicoso.module.js"></script>
+    <script src="~/ApiView/components/donvicoso/donvicosoAddController.js"></script>
+    <script src="~/ApiView/components/donvicoso/donvicosoEditController.js"></script>
+    <script src="~/ApiView/components/donvicoso/donvicosoListController.js"></script>
+    <!-- barcode -->
+    <script src="../assets/global/plugins/barcode/jquery-barcode.min.js"></script>
+    <!-- Chương trình -->
+    <script src="~/ApiView/components/chuongtrinh/chuongtrinh.module.js"></script>
+    <script src="~/ApiView/components/chuongtrinh/chuongtrinhAddController.js"></script>
+    <script src="~/ApiView/components/chuongtrinh/chuongtrinhListController.js"></script>
+    <script src="~/ApiView/components/chuongtrinh/chuongtrinhEditController.js"></script>
+    <!-- Đánh giá chất lượng mẫu-->
+    <script src="~/ApiView/components/danhgiachatluong/danhgiachatluong.module.js"></script>
+    <script src="~/ApiView/components/danhgiachatluong/danhgiachatluongAddController.js"></script>
+    <script src="~/ApiView/components/danhgiachatluong/danhgiachatluongEditController.js"></script>
+    <script src="~/ApiView/components/danhgiachatluong/danhgiachatluongListController.js"></script>
+    <!--Thông tin bệnh nhân-->
+    <script src="~/ApiView/components/thongtinbenhnhan/thongtinbenhnhan.module.js"></script>
+    <script src="~/ApiView/components/thongtinbenhnhan/thongtinbenhnhanController.js"></script>
+    <!--Gói dịch vụ chung-->
+    <script src="~/ApiView/components/goidichvuchung/goidichvuchung.module.js"></script>
+    <script src="~/ApiView/components/goidichvuchung/goidichvuchungAddController.js"></script>
+    <script src="~/ApiView/components/goidichvuchung/goidichvuchungEditController.js"></script>
+    <script src="~/ApiView/components/goidichvuchung/goidichvuchungListController.js"></script>
+    <!--Kỹ thuật xét nghiệm-->
+    <script src="~/ApiView/components/kythuatxetnghiem/kythuatxetnghiem.module.js"></script>
+    <script src="~/ApiView/components/kythuatxetnghiem/kythuatxetnghiemAddController.js"></script>
+    <script src="~/ApiView/components/kythuatxetnghiem/kythuatxetnghiemEditController.js"></script>
+    <script src="~/ApiView/components/kythuatxetnghiem/kythuatxetnghiemListController.js"></script>
+</body>
+</html>

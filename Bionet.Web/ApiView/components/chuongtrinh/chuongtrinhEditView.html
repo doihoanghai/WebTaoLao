@@ -1,0 +1,79 @@
+﻿<div class="page-content-fixed-header">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="javascript:;">Danh mục</a>
+        </li>
+        <li>
+            <a ui-sref="chuongtrinh">Chương trình</a>
+        </li>
+        <li>Chỉnh sửa mới chương trình</li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-blue-sharp"></i>
+                    <span class="caption-subject font-blue-sharp bold uppercase">Thêm chương trình</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form class="form-horizontal" novalidate name="frmUpdateChuongTrinh" role="form" ng-submit="Updatechuongtrinh()">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Mã chương trình:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name="IDChuongTrinh" required ng-model="chuongtrinh.IDChuongTrinh" placeholder="Nhập mã chương trình">
+                                <span ng-show="frmUpdateChuongTrinh.IDChuongTrinh.$invalid" class="color-red">Phải nhập mã chương trình</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Tên chương trình:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name="TenChuongTrinh" required ng-model="chuongtrinh.TenChuongTrinh" placeholder="Nhập tên chương trình">
+                                <span ng-show="frmUpdateChuongTrinh.TenChuongTrinh.$invalid" class="color-red">Phải nhập tên chương trình</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Ngày tạo:</label>
+                            <div class="col-md-4">
+                                <input class="form-control form-control-inline DatePicker"   size="16" type="text" ng-model="chuongtrinh.Ngaytao" placeholder="Nhập ngày tạo" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Ngày hết hiệu lực:</label>
+                            <div class="col-md-4">
+                                <input class="form-control form-control-inline DatePicker" size="16" type="text" ng-model="chuongtrinh.NgayHetHieuLuc" placeholder="Nhập ngày hết hiệu lực" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="status" ng-model="chuongtrinh.isLocked" ng-checked="chuongtrinh.isLocked"> isLocked
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="center">
+                                <button type="submit" class="btn btn-success" ng-disabled="frmUpdateChuongTrinh.$invalid">Lưu</button>
+                                <button ui-sref="chuongtrinh" class="btn btn-default">Bỏ qua</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.DatePicker').datepicker({
+            format: "dd/mm/yyyy",
+            forceParse: false
+        });
+    });
+</script>

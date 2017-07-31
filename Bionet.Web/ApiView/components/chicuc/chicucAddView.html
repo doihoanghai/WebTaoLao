@@ -1,0 +1,80 @@
+﻿<div class="page-content-fixed-header">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="javascript:;">Danh mục</a>
+        </li>
+        <li>
+            <a ui-sref="chicuc">Chi cục</a>
+        </li>
+        <li>Thêm mới chi cục</li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-blue-sharp"></i>
+                    <span class="caption-subject font-blue-sharp bold uppercase">Thêm danh mục chi cục</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form class="form-horizontal" novalidate name="frmAddChiCuc" role="form" ng-submit="AddChiCuc()">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Tên chi cục:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" required name="TenChiCuc" ng-model="chicuc.TenChiCuc" placeholder="Nhập tên chi cục">
+                                <span ng-show="frmAddChiCuc.TenChiCuc.$invalid" class="color-red">Phải nhập tên chi cục</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Số điện thoại:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="chicuc.SdtChiCuc" placeholder="Nhập số điện thoại cho chi cục">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Địa chỉ:</label>
+                            <div class="col-md-10">
+                                <textarea type="text" class="form-control" ng-model="chicuc.DiaChiChiCuc" rows="3" placeholder="Nhập địa chỉ cho chi cục"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Số thứ tự:</label>
+                            <div class="col-md-10">
+                                <input type="number" class="form-control" ng-model="chicuc.Stt"  placeholder="Nhập số thứ tự">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Trung tâm :</label>
+                            <div class="col-md-4">
+                                <select class="form-control" ng-model="chicuc.MaTrungTam" name="MaTrungTam" required ng-options="option.MaTTSL as option.TenTTSL for option in trungtam">
+                                    <option value="">Chọn trung tâm....</option>
+                                </select>
+                                <input type="hidden" name="donvi" ng-model="chicuc.MaTrungTam" />
+                                <span ng-show="frmAddChiCuc.MaTrungTam.$invalid" class="color-red">Phải chọn trung tâm</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="status" ng-model="chicuc.isLocked" ng-checked="chicuc.isLocked"> isLocked
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="center">
+                                <button type="submit" class="btn btn-success"  ng-disabled="frmAddChiCuc.$invalid">Thêm</button>
+                                <button ui-sref="chicuc" class="btn btn-default">Bỏ qua</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

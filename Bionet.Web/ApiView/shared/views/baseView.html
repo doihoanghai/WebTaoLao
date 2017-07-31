@@ -1,0 +1,257 @@
+﻿<header class="page-header">
+    <nav class="navbar" role="navigation">
+        <div class="container-fluid">
+            <div class="havbar-header">
+                <!-- BEGIN LOGO -->
+                <a id="index" class="logo-admin navbar-brand" style="margin-left:0px;" ui-sref="home">
+                    <img src="../assets/pages/img/login/logo.png"/>
+                </a>
+                <!-- END LOGO -->
+                <!-- BEGIN TOPBAR ACTIONS -->
+                <div class="topbar-actions">
+                    <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
+                    <form class="search-form" action="extra_search.html" method="GET">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search here" name="query">
+                            <span class="input-group-btn">
+                                <a href="javascript:;" class="btn submit">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </span>
+                        </div>
+                    </form>
+                    <!-- END HEADER SEARCH BOX -->
+                    <!-- BEGIN USER PROFILE -->
+                    <div class="btn-group-img btn-group">
+                        <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <img src="../assets/layouts/layout6/img/avatar1.jpg" alt="">
+                        </button>
+                        <ul class="dropdown-menu-v2" role="menu">
+                            <li>
+                                <a href="page_user_profile_1.html">
+                                    <i class="icon-user"></i> {{authentication.fullName}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" ng-click="logOut()" >
+                                    <i class="icon-key"></i> Đăng xuất
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END USER PROFILE -->
+                </div>
+                <!-- END TOPBAR ACTIONS -->
+            </div>
+        </div>
+        <!--/container-->
+    </nav>
+</header>
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+<div class="container-fluid">
+    <div class="page-content page-content-popup">
+        <div class="page-content-fixed-header">
+            <!-- BEGIN BREADCRUMBS -->
+            
+            <!-- END BREADCRUMBS -->
+            <div class="content-header-menu">
+                <!-- BEGIN MENU TOGGLER -->
+                <button type="button" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="toggle-icon">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </span>
+                </button>
+                <!-- END MENU TOGGLER -->
+            </div>
+        </div>
+        <div class="page-sidebar-wrapper">
+            <!-- BEGIN SIDEBAR -->
+            <div class="page-sidebar navbar-collapse collapse">
+                <!-- BEGIN SIDEBAR MENU -->
+                <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                    <li class="nav-item start ">
+                        <a ui-sref="home" class="nav-link nav-toggle">
+                            <i class="icon-home"></i>
+                            <span class="title" >Trang chủ</span>
+                        </a>
+                    </li>
+                    <li class="heading">
+                        <h3 class="uppercase">Nghiệp vụ</h3>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-user"></i>
+                            <span class="title">Nghiệp vụ</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="nav-item  ">
+                                <a ui-sref="phieusangloc_add" class="nav-link ">
+                                    <span class="title">Tiếp nhận</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a ui-sref="phieusangloc" class="nav-link ">
+                                    <span class="title">Danh sách tiếp nhận</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="heading">
+                        <h3 class="uppercase">Quản trị</h3>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-user"></i>
+                            <span class="title">Quản lý thành viên</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="nav-item  ">
+                                <a ui-sref="application_users" class="nav-link ">
+                                    <span class="title">Danh sách thành viên</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a ui-sref="application_roles" class="nav-link ">
+                                    <span class="title">Quyền thành viên</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a ui-sref="application_groups" class="nav-link ">
+                                    <span class="title">Nhóm thành viên</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-wallet"></i>
+                            <span class="title">Danh mục</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="nav-item">
+                                <a ui-sref="dichvu" class="nav-link ">
+                                    <span class="title">Dịch vụ</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a ui-sref="goidichvuchung" class="nav-link ">
+                                    <span class="title">Gói dịch vụ chung</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a ui-sref="chitietgoidichvu" class="nav-link ">
+                                    <span class="title">Chi tiết gói dịch vụ chung</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a ui-sref="danhgiachatluong" class="nav-link ">
+                                    <span class="title">Đánh giá chất lượng</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a ui-sref="kythuatxetnghiem" class="nav-link ">
+                                    <span class="title">Kỹ thuật xét nghiệm</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a ui-sref="thongsoxetnghiem" class="nav-link ">
+                                    <span class="title">Thông số xét nghiệm</span>
+                                </a>
+                            </li>
+                            <!--<li class="nav-item  ">
+                                <a href="javascript:;" class="nav-link ">
+                                    <span class="title">Thông tin bệnh nhân</span>
+                                </a>
+                            </li>-->
+                            <li class="nav-item  ">
+                                <a ui-sref="trungtamsangloc" class="nav-link ">
+                                    <span class="title">Trung tâm</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a ui-sref="chicuc" class="nav-link ">
+                                    <span class="title">Chi cục</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a ui-sref="donvicoso" class="nav-link ">
+                                    <span class="title">Đơn vị cơ sở</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item  ">
+                                <a ui-sref="chuongtrinh" class="nav-link ">
+                                    <span class="title">Chương trình</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item  ">
+                        <a ui-sref="accountPassword" class="nav-link nav-toggle">
+                            <i class="icon-settings"></i>
+                            <span class="title">Đổi mật khẩu</span>
+                        </a>
+                    </li>
+                    <li class="heading">
+                        <h3 class="uppercase">Báo cáo</h3>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Báo cáo đơn vị</span>
+                        </a>
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Báo cáo phiếu</span>
+                        </a>
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Báo cáo bệnh</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- END SIDEBAR MENU -->
+            </div>
+            <!-- END SIDEBAR -->
+        </div>
+        <div class="page-fixed-main-content">
+            <!-- BEGIN PAGE BASE CONTENT -->
+            <div class="content-wrapper">
+                <div ui-view></div>
+            </div>
+            <!-- END PAGE BASE CONTENT -->
+        </div>
+        <!-- BEGIN FOOTER -->
+        <p class="copyright-v2">
+            2017 © PowerSoft JSC.
+        </p>
+        <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+        <!-- END QUICK SIDEBAR TOGGLER -->
+        <a href="#index" class="go2top">
+            <i class="icon-arrow-up"></i>
+        </a>
+        <!-- END FOOTER -->
+    </div>
+</div>
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
+<script src="../assets/layouts/layout6/scripts/layout.min.js" type="text/javascript"></script>
+<script src="../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+<!-- END THEME GLOBAL SCRIPTS -->
+<script>
+    $('ul li a').click(function () {
+        $('ul li .active').removeClass('active');
+        if ($(this).attr('href') != 'javascript:;')
+        {
+            $(this).closest('li').addClass('active open');
+        }
+    });
+
+</script>
+
+

@@ -1,0 +1,77 @@
+﻿<div class="page-content-fixed-header">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="javascript:;">Danh mục</a>
+        </li>
+        <li>
+            <a ui-sref="trungtamsangloc">Trung tâm</a>
+        </li>
+        <li>Thêm mới trung tâm</li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-blue-sharp"></i>
+                    <span class="caption-subject font-blue-sharp bold uppercase">Thêm danh mục trung tâm</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form class="form-horizontal" novalidate name="frmAddTrungTam" role="form" ng-submit="checkExistMa(trungtamsangloc.MaTTSL)">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Mã trung tâm:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" required name="MaTTSL" ng-model="trungtamsangloc.MaTTSL" placeholder="Nhập mã trung tâm">
+                                <span ng-show="frmAddTrungTam.MaTTSL.$invalid" class="color-red">Phải nhập mã trung tâm</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Tên trung tâm:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" required name="TenTTSL" ng-model="trungtamsangloc.TenTTSL" placeholder="Nhập tên trung tâm">
+                                <span ng-show="frmAddTrungTam.TenTTSL.$invalid" class="color-red">Phải nhập tên trung tâm</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Số điện thoại:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" ng-model="trungtamsangloc.DiaChiTTSL" placeholder="Nhập số điện thoại cho trung tâm">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Địa chỉ:</label>
+                            <div class="col-md-10">
+                                <textarea type="text" class="form-control" ng-model="trungtamsangloc.SDTTTSL" rows="3" placeholder="Nhập địa chỉ cho trung tâm"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Số thứ tự:</label>
+                            <div class="col-md-10">
+                                <input type="number" class="form-control" ng-model="trungtamsangloc.Stt"  placeholder="Nhập số thứ tự">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="status" ng-model="trungtamsangloc.isLocked" ng-checked="trungtamsangloc.isLocked"> isLocked
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="center">
+                                <button type="submit" class="btn btn-success"  ng-disabled="frmAddTrungTam.$invalid">Thêm</button>
+                                <button ui-sref="trungtamsangloc" class="btn btn-default">Bỏ qua</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

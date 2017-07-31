@@ -1,0 +1,59 @@
+﻿<div class="page-content-fixed-header">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="javascript:;">Danh mục</a>
+        </li>
+        <li>
+            <a ui-sref="danhgiachatluong">Đánh giá chất lượng mẫu</a>
+        </li>
+        <li>Danh sách đánh giá chất lượng mẫu</li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-blue-sharp"></i>
+                    <span class="caption-subject font-blue-sharp bold uppercase">Thêm danh mục đánh giá chất lượng mẫu</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form class="form-horizontal" novalidate name="frmUpdatedanhgiachatluong" role="form" ng-submit="Updatedanhgiachatluong()">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Mã đánh giá:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name="IDdanhgiachatluong" readonly ng-model="danhgiachatluong.IDDanhGiaChatLuongMau" placeholder="Nhập mã chương trình">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Chất lượng mẫu:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" name="Tendanhgiachatluong" required ng-model="danhgiachatluong.ChatLuongMau" placeholder="Nhập tên chương trình">
+                                <span ng-show="frmUpdatedanhgiachatluong.Tendanhgiachatluong.$invalid" class="color-red">Phải nhập chất lượng mẫu</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="status" ng-model="danhgiachatluong.isLocked" ng-checked="danhgiachatluong.isLocked"> isLocked
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="center">
+                                <button type="submit" class="btn btn-success" ng-disabled="frmUpdatedanhgiachatluong.$invalid">Lưu</button>
+                                <button ui-sref="danhgiachatluong" class="btn btn-default">Bỏ qua</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

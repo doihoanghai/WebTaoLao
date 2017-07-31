@@ -1,0 +1,103 @@
+﻿<div class="page-content-fixed-header">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="javascript:;">Quản trị</a>
+        </li>
+        <li>
+            <a ui-sref="application_users">Thành viên</a>
+        </li>
+        <li>Chỉnh sửa thông tin thành viên</li>
+    </ul>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-blue-sharp"></i>
+                    <span class="caption-subject font-blue-sharp bold uppercase">Chỉnh sửa người dùng</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form class="form-horizontal" role="form" novalidate name="frmUpdateAccount" ng-submit="updateAccount()">
+                    <div class="form-body">
+                        <div class="form-group" ng-class="{ 'has-error' : frmUpdateAccount.name.$invalid && !frmUpdateAccount.name.$pristine }">
+                            <label class="col-sm-2 control-label">Họ tên người dùng</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="name" class="form-control"
+                                       required reqired-message="Họ tên bắt buộc." ng-model="account.FullName">
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : frmUpdateAccount.userName.$invalid && !frmUpdateAccount.userName.$pristine }">
+                            <label class="col-sm-2 control-label">Tài khoản</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="userName" class="form-control"
+                                       required reqired-message="Tài khoản bắt buộc." ng-model="account.UserName">
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : frmUpdateAccount.passWord.$invalid && !frmUpdateAccount.passWord.$pristine }">
+                            <label class="col-sm-2 control-label">Mật khẩu</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="passWord" class="form-control" ng-model="account.PassWord" placeholder="Nhập mật khẩu mới - không bắt buộc">
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : frmUpdateAccount.email.$invalid && !frmUpdateAccount.email.$pristine }">
+                            <label class="col-sm-2 control-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" name="email" class="form-control"
+                                       required reqired-message="Email bắt buộc." ng-model="account.Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Điện thoại</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="password" class="form-control"
+                                       ng-model="account.PhoneNumber">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Ngày sinh</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="birthDate " class="form-control DatePicker" required ng-model="account.BirthDay">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Bậc người dùng:</label>
+                            <div class="col-md-2">
+                                <select class="form-control" ng-model="account.UserLevel" ng-change="GetLevelCode()">
+                                    <option value="">Chọn...</option>
+                                    <option ng-value="1">Trung Tâm</option>
+                                    <option ng-value="2">Chi cục</option>
+                                    <option ng-value="3">Đơn vị cơ sở</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2" ng-show="items != null">
+                                <select class="form-control" ng-model="account.LevelCode" ng-options="option.code as option.name for option in items">
+                                    <option value="">Chọn...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <a ui-sref="application_users" class="btn btn-default">Hủy bỏ</a>
+                                <input type="submit" ng-disabled="frmUpdateAccount.$invalid" class="btn btn-primary" value="Lưu lại" />
+                            </div>
+                        </div>
+                    </div><!-- /.box-body -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+            $('.DatePicker').datepicker({
+                format: "dd/mm/yyyy",
+                forceParse: false
+            });
+        });
+</script>
+
