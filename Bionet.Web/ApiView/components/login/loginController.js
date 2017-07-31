@@ -16,8 +16,8 @@
                         var stateService = $injector.get('$state');
                         var leveluser;
 
-                        var url = apiService.apihost + 'api/account/detail/' + $scope.loginData.userName;
-                        $http.get(url).then(function (response) {
+                        var url =  'api/account/detail/' + $scope.loginData.userName;
+                        apiService.get(url,null,function (response) {
                             debugger;
                             authData.authenticationData.fullName = response.data.FullName;
                             leveluser = response.data.UserLevel;

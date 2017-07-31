@@ -9,14 +9,8 @@ namespace Bionet.API.Models
 {
     public class ThongSoKyThuatViewModel
     {
-        [Key]
-        [Column(TypeName = "bigint")]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long RowIDMaps { get; set; }
 
-        public string IDKyThuatXN { get; set; }
-
-        public string IDThongSo { get; set; }
+        public string IDThongSoXN { get; set; }
 
         public string TenThongSo { get; set; }
 

@@ -49,6 +49,7 @@ namespace Bionet.API.ControllerAPI
         }
 
         [Route("detail/{userName}")]
+        [Authorize]
         [HttpGet]
         public HttpResponseMessage Details(HttpRequestMessage request, string userName)
         {

@@ -96,7 +96,7 @@
     <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="Repositories\MapsXN_DichVuRepository.cs" />
-    <Compile Include="Repositories\MapsXN_ThongSoRepository.cs" />
+    <Compile Include="Repositories\MapsXNThongSoRepository.cs" />
     <Compile Include="Repositories\MauXetNghiemRepository.cs" />
     <Compile Include="Repositories\NhanVienRepository.cs" />
     <Compile Include="Repositories\PatientRepository.cs" />

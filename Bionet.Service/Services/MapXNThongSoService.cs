@@ -26,33 +26,33 @@ namespace Bionet.Service.Services
 
     public class MapsXNThongSoService : IMapsXNThongSoService
     {
-        private MapsXNThongSoRepository _mapX_ThongSoRepository;
-        private UnitOfWork _unitOfWork;
+        private IMapsXNThongSoRepository _mapXNThongSoRepository;
+        private IUnitOfWork _unitOfWork;
 
-        public MapsXNThongSoService(MapsXNThongSoRepository mapX_ThongSoRepository,UnitOfWork unitOfWork)
+        public MapsXNThongSoService(IMapsXNThongSoRepository mapXNThongSoRepository,IUnitOfWork unitOfWork)
         {
-            _mapX_ThongSoRepository = mapX_ThongSoRepository;
+            _mapXNThongSoRepository = mapXNThongSoRepository;
             _unitOfWork = unitOfWork;
         }
 
         public void Add(MapsXN_ThongSo map)
         {
-            this._mapX_ThongSoRepository.Add(map);
+            this._mapXNThongSoRepository.Add(map);
         }
 
         public void Delete(int rowID)
         {
-            this._mapX_ThongSoRepository.DeleteMulti(x => x.RowIDMaps == rowID);
+            this._mapXNThongSoRepository.DeleteMulti(x => x.RowIDMaps == rowID);
         }
 
         public IEnumerable<MapsXN_ThongSo> getall()
         {
-            return this._mapX_ThongSoRepository.GetAll();
+            return this._mapXNThongSoRepository.GetAll();
         }
 
         public IEnumerable<MapsXN_ThongSo> getall(string maKyThuat)
         {
-            return this._mapX_ThongSoRepository.GetMulti(x => x.IDKyThuatXN == maKyThuat);
+            return this._mapXNThongSoRepository.GetMulti(x => x.IDKyThuatXN == maKyThuat);
         }
 
         public void Save()
@@ -62,7 +62,7 @@ namespace Bionet.Service.Services
 
         public void Update(MapsXN_ThongSo map)
         {
-            this._mapX_ThongSoRepository.Update(map);
+            this._mapXNThongSoRepository.Update(map);
         }
     }
 }

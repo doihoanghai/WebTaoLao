@@ -4,7 +4,7 @@
     kythuatxetnghiemListController.$inject = ['$scope', 'apiService', 'notificationService', '$ngBootbox'];
 
     function kythuatxetnghiemListController($scope, apiService, notificationService, $ngBootbox) {
-        $scope.kythuatxetnghiem = [];
+        $scope.mapsupdate = {};
         $scope.page = 0;
         $scope.pageCount = 0;
         $scope.getkythuatxetnghiem = getkythuatxetnghiem;
@@ -12,6 +12,9 @@
 
         $scope.search = search;
         $scope.deleteKyThuatXN = deleteKyThuatXN;
+        $scope.Update = Update;
+        $scope.idKythuat;
+
 
         $scope.loadthongsoxntheokythuat = loadthongsoxntheokythuat;
 
@@ -56,26 +59,29 @@
             });
         }
 
+        function loadthongsoxntheokythuat(maKyThuat)
+        {
+            $scope.idKythuat = maKyThuat;
+            loadthongsoxntheokythuat1(maKyThuat);
+        }
+
         function loadthongsoxn()
         {
-<<<<<<< HEAD
+
             apiService.get('api/thongsoxetnghiem/GetMapsTS', null, function (result) {
                 $scope.service = result.data;
             }, function () {
                 console.log('Cannot get list Service Package');
             });
-=======
-
->>>>>>> 0ff1717dcaea158ef193d2a433afc89a5454a473
         }
 
-        function loadthongsoxntheokythuat(maKyThuat)
+        function loadthongsoxntheokythuat1(maKyThuat)
         {
-<<<<<<< HEAD
-            apiService.get('api/mapxnts/getallthongsoxn?makythuat=' + maKyThuat, null, function (result) {
+            
+            apiService.get('api/mapsxnthongso/getallthongsoxn?makythuat=' + maKyThuat, null, function (result) {
                 debugger;
                 $scope.serviceDetail = result.data;
-                loadGoiDV();
+                loadthongsoxn();
             }, function () {
                 null
             }
@@ -83,9 +89,9 @@
         }
         function Update() {
             debugger;
-            $scope.goiDVtrungtam.lstGoiDichVu = $scope.serviceDetail;
-            $scope.goiDVtrungtam.maTT = $scope.maTT;
-            apiService.post('api/goidichvuchung/UpdateGoiDVTT', $scope.goiDVtrungtam, function (result) {
+            $scope.mapsupdate.idKyThuat = $scope.idKythuat;
+            $scope.mapsupdate.mapxnts = $scope.serviceDetail;
+            apiService.post('api/mapsxnthongso/update', $scope.mapsupdate, function (result) {
                 notificationService.displaySuccess('Cập nhật gói dịch vụ trung tâm thành công!');
 
             }, function () {
@@ -93,12 +99,10 @@
             })
         }
 
-=======
 
-        }
+      
 
 
->>>>>>> 0ff1717dcaea158ef193d2a433afc89a5454a473
         $scope.getkythuatxetnghiem();
     }
 })(angular.module('bionet.kythuatxetnghiem'));

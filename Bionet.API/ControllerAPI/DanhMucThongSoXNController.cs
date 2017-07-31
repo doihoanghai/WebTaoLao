@@ -34,7 +34,7 @@ namespace Bionet.API.ControllerAPI
         public HttpResponseMessage getMapTS(HttpRequestMessage request)
         {
             var thongso = danhMucThongSoXNService.GetAll(null);
-            var response = Mapper.Map<IEnumerable<DanhMucThongSoXN>, IEnumerable<MapsXN_ThongSo>>(thongso);
+            var response = Mapper.Map<IEnumerable<DanhMucThongSoXN>, IEnumerable<ThongSoKyThuatViewModel>>(thongso);
             return request.CreateResponse(HttpStatusCode.OK, response);
         }
 

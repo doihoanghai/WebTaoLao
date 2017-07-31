@@ -79,7 +79,7 @@
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\ErrorService.cs" />
     <Compile Include="Services\GoiDichVuChungService.cs" />
-    <Compile Include="Services\MapXN_ThongSoService.cs" />
+    <Compile Include="Services\MapXNThongSoService.cs" />
     <Compile Include="Services\NhomService.cs" />
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\PhieuSangLocService.cs" />
