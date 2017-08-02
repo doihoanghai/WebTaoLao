@@ -286,6 +286,7 @@
     <Compile Include="Models\DanhMucThongSoXNViewModel.cs" />
     <Compile Include="Models\DanhMucTrungTamSangLocViewModel.cs" />
     <Compile Include="Models\GoiDichVuTrungTamViewModel.cs" />
+    <Compile Include="Models\MapsXetNghiem_ThongSoViewModel.cs" />
     <Compile Include="Models\Patient_XN_ListTraKQChiTietViewModel.cs" />
     <Compile Include="Models\Patient_XN_TraKQ_ChiTietViewModel.cs" />
     <Compile Include="Models\PhieuSangLocViewModel.cs" />
@@ -304,6 +305,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AppSettings.config" />
+    <None Include="Properties\PublishProfiles\bionetAPI.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -9,52 +9,76 @@ using Bionet.Service.Services;
 using System.IO;
 using System.Web;
 using System.Threading.Tasks;
+using System.Net.Http.Headers;
 
 namespace Bionet.API.ControllerAPI
 {
     [RoutePrefix("api/patient")]
     public class PatientController : ApiControllerBase
     {
-        
-        public PatientController(IErrorService errorService) : base(errorService)
+        private IPhieuSangLocService phieuSangLocService;
+
+        public PatientController(IErrorService errorService, IPhieuSangLocService _phieuSangLocService) : base(errorService)
         {
+            phieuSangLocService = _phieuSangLocService;
         }
 
-
+        [Route("getThongTin")]
+        [HttpGet]
+        public HttpResponseMessage getThongTin(HttpRequestMessage request,string mabenhnhan)
+        {
+            return request.CreateResponse(HttpStatusCode.OK, phieuSangLocService.GetByMaBenhNhan(mabenhnhan));
+        }
         
         [Route("pushFileKQ")]
         [HttpPost]
         public HttpResponseMessage saveFile(HttpRequestMessage request,string mabenhnhan)
         {
-            List<string> savedFilePath = new List<string>();
-            string rootPath = HttpContext.Current.Server.MapPath("~/KetQuaXetNghiem");
-            var provider = new MultipartFileStreamProvider(rootPath);
-            var task = Request.Content.ReadAsMultipartAsync(provider).ContinueWith(t =>
+            var httpRequest = HttpContext.Current.Request;
+            if (httpRequest.Files.Count > 0)
             {
-                if (t.IsCanceled || t.IsFaulted)
+                foreach (string fileName in httpRequest.Files.Keys)
                 {
-                    Request.CreateErrorResponse(HttpStatusCode.InternalServerError, t.Exception);
-                }
-                foreach (MultipartFileData item in provider.FileData)
-                {
-                    try
-                    {
-                        string Name = mabenhnhan.Trim('/');
-                        File.Move(item.LocalFileName, Path.Combine(rootPath, Name));
-
-                        Uri BaseUri = new Uri(Request.RequestUri.AbsoluteUri.Replace(Request.RequestUri.PathAndQuery, string.Empty));
-                        string fileRelativePath = "~/KetQuaXetNghiem/" + Name;
-                        Uri FileFullFath = new Uri(BaseUri, VirtualPathUtility.ToAbsolute(fileRelativePath));
-                        savedFilePath.Add(FileFullFath.ToString());
-                    }
-                    catch (Exception ex)
-                    {
-                        string mes = ex.Message;
-                    }
+                    var file = httpRequest.Files[fileName];
+                    string path = HttpContext.Current.Server.MapPath("~/KetQuaXetNghiem/");
+                    path += mabenhnhan;
+                    Directory.CreateDirectory(path);
+                    file.SaveAs(path + file.FileName);
                 }
 
-            });
-            return Request.CreateResponse(HttpStatusCode.Created, savedFilePath); ;
+                return Request.CreateResponse(HttpStatusCode.Created);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        [Route("getFileKQ")]
+        [HttpGet]
+        public HttpResponseMessage getFile(HttpRequestMessage request,string mabenhnhan)
+        {
+          
+            List<String> files = new List<String>();
+            string path = HttpContext.Current.Server.MapPath("~/KetQuaXetNghiem/");
+            path += mabenhnhan;
+
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+            HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
+
+            foreach (FileInfo fInfo in dirInfo.GetFiles())
+            {
+               
+                var pathfile = path+"\\" + fInfo.Name;
+                var stream = new FileStream(pathfile, FileMode.Open);
+                result.Content = new StreamContent(stream);
+                result.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
+                result.Content.Headers.ContentDisposition.FileName = Path.GetFileName(path)+".pdf";
+                result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                result.Content.Headers.ContentLength = stream.Length;
+            }
+           
+            return result;
+
         }
     }
+    
 }

@@ -51,14 +51,14 @@ namespace Bionet.API.ControllerAPI
         [Route("detail/{userName}")]
         [Authorize]
         [HttpGet]
-        public HttpResponseMessage Details(HttpRequestMessage request, string userName)
+        public HttpResponseMessage Details(HttpRequestMessage request, string userName,string password)
         {
             if (string.IsNullOrEmpty(userName))
             {
 
                 return request.CreateErrorResponse(HttpStatusCode.BadRequest, nameof(userName) + " không có giá trị.");
             }
-            var user = _userManager.FindByNameAsync(userName);
+            var user = _userManager.FindAsync(userName,password);
             
             if (user == null)
             {

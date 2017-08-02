@@ -70,11 +70,11 @@ namespace Bionet.API.ControllerAPI
             return CreateHttpResponse(request, () =>
             {
                 int totalRow = 0;
-                IEnumerable<DanhMucDonViCoSo> model = new List<DanhMucDonViCoSo>();
-                if(!string.IsNullOrEmpty(MaTT))
-                    model = donViCoSoService.GetAllByMaTT(MaTT);
-                else
-                    model = donViCoSoService.GetAllHasCondition(keyword);
+       
+                var user = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
+
+                var lvCode = userManager.FindByNameAsync(user).Result.LevelCode;
+                var model = this.donViCoSoService.GetAll(lvCode);
 
                 totalRow = model.Count();
                 var query = model.OrderByDescending(x => x.Stt).Skip(page * pageSize).Take(pageSize);

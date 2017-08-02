@@ -2,30 +2,36 @@
     <br />
     <h4>Đổi mật khẩu</h4>
     <hr />
-    <div class="form-group">
-        <label class="control-label col-md-2">Mật khẩu cũ:</label>
-        <div class="col-md-10">
-            <input class="form-control" type="password" placeholder="Nhập mật khẩu cũ" />
+    <form class="form-horizontal" role="form" novalidate name="frmChangePass" ng-submit="UpdatechangePass()">
+        <div class="form-group">
+            <label class="control-label col-md-2">Mật khẩu cũ:</label>
+            <div class="col-md-10">
+                <input type="password" class="form-control" required name="PassOld" ng-model="account.PasswordOld" placeholder="Nhập mật khẩu cũ">
+                <span ng-show="frmChangePass.PassOld.$touched && frmChangePass.PassOld.$invalid" class="color-red">Phải nhập mật khẩu cũ</span>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">Mật khẩu mới:</label>
-        <div class="col-md-10">
-            <input class="form-control" type="password" placeholder="Nhập mật khẩu mới" />
+        <div class="form-group">
+            <label class="control-label col-md-2">Mật khẩu mới:</label>
+            <div class="col-md-10">
+                <input type="password" class="form-control" ng-minlength="6" required name="PassNew" ng-model="account.PasswordNew" placeholder="Nhập mật khẩu mới">
+                <span ng-show="frmChangePass.PassNew.$touched && frmChangePass.PassNew.$invalid" class="color-red">Phải nhập mật khẩu mới và tối thiểu 6 ký tự</span>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">Nhập lại mật khẩu mới:</label>
-        <div class="col-md-10">
-            <input class="form-control" type="password" placeholder="Nhập lại mật khẩu mới" />
+        <div class="form-group">
+            <label class="control-label col-md-2">Nhập lại mật khẩu mới:</label>
+            <div class="col-md-10">
+                <input type="password" class="form-control" required name="PassConfirm" ng-model="account.PasswordConfirm" ng-required="PassConfirm && !PassNew" password-verify="PassNew" placeholder="Nhập lại mật khẩu mới">
+                <span ng-show="frmChangePass.PassConfirm.$invalid" class="color-red">Phải nhập lại mật khẩu mới</span>
+                <span ng-show="account.PasswordConfirm !== account.PasswordNew" class="color-red">Nhập lại mật khẩu không trùng</span>
+            </div>
         </div>
-    </div>
-    <div class="form-group" id="btn">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <button class="btn"><span>Xác nhận</span></button>
-            <button class="btn"><span>Huỷ bỏ</span></button>
+        <div class="form-group" id="btn">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <input type="submit" ng-disabled="frmChangePass.$invalid || account.PasswordConfirm !== account.PasswordNew" class="btn btn-primary" value="Lưu lại" />
+                <a ui-sref="Patient" class="btn btn-default">Hủy bỏ</a>
+            </div>
+            <div class="col-md-4"></div>
         </div>
-        <div class="col-md-4"></div>
-    </div>
+    </form>
 </div>

@@ -387,11 +387,17 @@
     <Content Include="ApiView\components\kythuatxetnghiem\kythuatxetnghiemListView.html" />
     <Content Include="ApiView\components\login\loginController.js" />
     <Content Include="ApiView\components\login\loginView.html" />
+    <Content Include="ApiView\components\Patient\doimatkhau\doimatkhau.module.js" />
+    <Content Include="ApiView\components\Patient\doimatkhau\doimatkhauController.js" />
     <Content Include="ApiView\components\Patient\doimatkhau\doimatkhauView.html" />
+    <Content Include="ApiView\components\Patient\ketquaxetnghiem\ketquaxetnghiem.module.js" />
     <Content Include="ApiView\components\Patient\home\homeView.html" />
-    <Content Include="ApiView\components\Patient\home\rootController.js" />
+    <Content Include="ApiView\components\Patient\rootController.js" />
+    <Content Include="ApiView\components\Patient\ketquaxetnghiem\ketquaxetnghiemController.js" />
     <Content Include="ApiView\components\Patient\ketquaxetnghiem\ketquaxetnghiemView.html" />
     <Content Include="ApiView\components\Patient\patient_homeView.html" />
+    <Content Include="ApiView\components\Patient\thongtincanhan\thongtincanhan.module.js" />
+    <Content Include="ApiView\components\Patient\thongtincanhan\thongtincanhanController.js" />
     <Content Include="ApiView\components\Patient\thongtincanhan\thongtincanhanView.html" />
     <Content Include="ApiView\components\phieusangloc\phieusanglocAddController.js" />
     <Content Include="ApiView\components\phieusangloc\phieusangloc.module.js" />
@@ -5848,9 +5854,11 @@
     <Content Include="assets\pages\scripts\ui-tree.min.js" />
     <Content Include="assets\pages\scripts\widgets.js" />
     <Content Include="assets\pages\scripts\widgets.min.js" />
+    <Content Include="assets\styles\main.css" />
     <Content Include="assets\styles\style.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\main.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -6207,6 +6215,7 @@
     <Content Include="assets\global\plugins\bootstrap-datetimepicker\README.md" />
     <Content Include="ApiView\components\danhgiachatluong\danhgiachatluong.module.js" />
     <Content Include="ApiView\components\Patient\home\Index.cshtml" />
+    <Content Include="Content\main.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -6215,9 +6224,13 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\XML\ClinicInfo.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

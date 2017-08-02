@@ -1,15 +1,18 @@
-﻿using AutoMapper;
+﻿using Bionet.Service.Services;
 using Bionet.API.Infrastructure;
-using Bionet.API.Models;
-using Bionet.Service.Services;
-using Bionet.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web.Http;
 using System.Web;
-using System.Web.Mvc;
+using Bionet.Web.Models;
+using Bionet.API.Infrastructure.Core;
+using AutoMapper;
+using Bionet.API.Infrastructure.Extensions;
+using Bionet.API.Models;
+using Bionet.Model.Models;
 
 namespace Bionet.API.ControllerAPI
 {
@@ -42,17 +45,20 @@ namespace Bionet.API.ControllerAPI
             return request.CreateResponse(HttpStatusCode.OK,response);
         }
 
+
         [Route("update")]
-        public HttpResponseMessage update(HttpRequestMessage request,string idKyThuat,List<ThongSoKyThuatViewModel> mapxnts)
+        public HttpResponseMessage Update(HttpRequestMessage request, MapsXetNghiem_ThongSoViewModel mapxnts)
         {
-            foreach(var x in mapxnts)
+            foreach (var x in mapxnts.mapxnts)
             {
                 MapsXN_ThongSo maps = new MapsXN_ThongSo();
                 maps.RowIDMaps = 1;
                 maps.TenThongSo = x.TenThongSo;
                 maps.IDThongSoXN = x.IDThongSoXN;
-                maps.IDKyThuatXN = idKyThuat;
-                _mapsXNTSService.Update(maps);
+                maps.IDKyThuatXN = mapxnts.idKyThuat;
+                maps.RowIDMaps = 0;
+                _mapsXNTSService.DeleteMulti(maps.IDKyThuatXN);
+                _mapsXNTSService.Add(maps);
             }
             _mapsXNTSService.Save();
             return request.CreateResponse(HttpStatusCode.OK);

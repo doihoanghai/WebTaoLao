@@ -1,8 +1,16 @@
-﻿(function (app) {
+﻿var xml = new XMLHttpRequest();
+xml.open('GET', 'Scripts/XML/ClinicInfo.xml', false)
+xml.send();
+var xmlData = xml.responseXML;
+var host;
+xmlData = (new DOMParser()).parseFromString(xml.responseText, 'text/xml');
+var clinic = xmlData.getElementsByTagName("clinic");
+hostapi = clinic[0].getElementsByTagName("host")[0].firstChild.data;
+(function (app) {
     app.factory('apiService', apiService);
 
     apiService.$inject = ['$http', 'notificationService', 'authenticationService', '$state', '$location', 'authData'];
-    var apihost = "http://localhost:53112/";
+    var apihost = hostapi;
     function apiService($http, notificationService, authenticationService, $state, $location, authData) {     
         return {
             get: get,

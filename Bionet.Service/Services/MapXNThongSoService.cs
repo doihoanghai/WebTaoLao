@@ -19,6 +19,7 @@ namespace Bionet.Service.Services
 
         void Delete(int rowID);
 
+        void DeleteMulti(string maKyThuat);
         void Update(MapsXN_ThongSo map);
 
         void Save();
@@ -43,6 +44,11 @@ namespace Bionet.Service.Services
         public void Delete(int rowID)
         {
             this._mapXNThongSoRepository.DeleteMulti(x => x.RowIDMaps == rowID);
+        }
+
+        public void DeleteMulti(string maKyThuat)
+        {
+            this._mapXNThongSoRepository.DeleteMulti(x => x.IDKyThuatXN == maKyThuat);
         }
 
         public IEnumerable<MapsXN_ThongSo> getall()

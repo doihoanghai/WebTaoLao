@@ -18,6 +18,9 @@
          'bionet.chitietgoidichvu',
          'bionet.goidichvuchung',
          'bionet.kythuatxetnghiem',
+         'bionet.doimatkhau',
+         'bionet.ketquaxetnghiem',
+         'bionet.thongtincanhan',
          'bionet.common'])
 
         .config(config)
@@ -44,7 +47,7 @@
             })
             .state('patient', {
                 url: "/patient",
-                templateUrl: '/ApiView/components/Patient/home/homeView.html',
+                templateUrl: '/ApiView/components/Patient/patient_homeView.html',
 
             })
             .state('error', {
