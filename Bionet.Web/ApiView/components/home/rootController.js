@@ -5,7 +5,7 @@
 
     function rootController($state, authData, loginService, $scope, authenticationService,$window, apiService, $location) {
         $scope.logOut = function () {
-            debugger;
+             
             loginService.logOut();
             $window.location.href = '/admin';
             $window.reload();

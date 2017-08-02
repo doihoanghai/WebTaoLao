@@ -62,7 +62,7 @@ namespace Bionet.Data
         public DbSet<NhanVien> NhanVien { set; get; }
         public DbSet<Patient> Patients { set; get; }
         public DbSet<Person> Persons { set; get; }
-        public DbSet<PhieuSangLoc> PhieuSangLoc { set; get; }
+        public DbSet<PhieuSangLoc> thongtin { set; get; }
         public DbSet<ThongTinTrungTam> ThongTinTrungTam { set; get; }
         public DbSet<TiepNhan> TiepNhan { set; get; }
         public DbSet<XN_KetQua> XN_KetQua { set; get; }

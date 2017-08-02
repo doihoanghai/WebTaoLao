@@ -58,7 +58,7 @@
 
         function loadGoiDVTT(maTT)
         {
-            debugger;
+             
             $scope.maTT = maTT;
             loadGoiDVTTdetail(maTT);
             
@@ -76,7 +76,7 @@
         {
             
             apiService.get('api/goidichvuchung/getallGoiDichVuTT?maTT='+maTT,null, function (result) {
-                debugger;
+                 
                 $scope.serviceDetail = result.data;
                 loadGoiDV();
             }, function () {
@@ -86,7 +86,7 @@
         }
         function Update()
         {
-            debugger;
+             
             $scope.goiDVtrungtam.lstGoiDichVu = $scope.serviceDetail;
             $scope.goiDVtrungtam.maTT = $scope.maTT;
             apiService.post('api/goidichvuchung/UpdateGoiDVTT', $scope.goiDVtrungtam, function (result) {

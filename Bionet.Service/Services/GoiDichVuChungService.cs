@@ -76,7 +76,7 @@ namespace Bionet.Service.Services
 
         public DanhMucGoiDichVuChung getByMa(string ma)
         {
-            return this.goiDichVuChungoRepository.GetSingleByCondition(x => x.TenGoiDichVuChung == ma);
+            return this.goiDichVuChungoRepository.GetSingleByCondition(x => x.IDGoiDichVuChung == ma);
         }
 
         public void Save()

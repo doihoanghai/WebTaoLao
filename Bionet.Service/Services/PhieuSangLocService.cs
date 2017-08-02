@@ -20,9 +20,9 @@ namespace Bionet.Service.Services
 
         IEnumerable<PhieuSangLoc> GetAllHasCondition(string keyword);
 
-        void Add(PhieuSangLoc phieuSangLoc);
+        void Add(PhieuSangLoc PhieuSangLoc);
 
-        void Update(PhieuSangLoc phieuSangLoc);
+        void Update(PhieuSangLoc PhieuSangLoc);
 
         PhieuSangLoc GetByMaBenhNhan(string maBenhNhan);
 
@@ -31,35 +31,35 @@ namespace Bionet.Service.Services
     }
     public class PhieuSangLocService : IPhieuSangLocService
     {
-        private IPhieuSangLocRepository phieuSangLocRepository;
+        private IPhieuSangLocRepository PhieuSangLocRepository;
         private IDanhMucDonViCoSoRepository donViCoSoRepository;
         private IUnitOfWork unitOfWork;
 
-        public PhieuSangLocService(IPhieuSangLocRepository _phieuSangLocRepository, IDanhMucDonViCoSoRepository _donViCoSoRepository, IUnitOfWork _unitOfWork)
+        public PhieuSangLocService(IPhieuSangLocRepository _PhieuSangLocRepository, IDanhMucDonViCoSoRepository _donViCoSoRepository, IUnitOfWork _unitOfWork)
         {
-            this.phieuSangLocRepository = _phieuSangLocRepository;
+            this.PhieuSangLocRepository = _PhieuSangLocRepository;
             this.donViCoSoRepository = _donViCoSoRepository;
             this.unitOfWork = _unitOfWork;
         }
 
-        public void Add(PhieuSangLoc phieuSangLoc)
+        public void Add(PhieuSangLoc PhieuSangLoc)
         {
-            phieuSangLoc.TrangThaiPhieu = false;
-            phieuSangLoc.isKhongDat = false;
-            phieuSangLoc.isDongBo = false;
-            phieuSangLoc.isXoa = false;
-            phieuSangLoc.isXNLan2 = false;
-            phieuSangLoc.IDNhanVienXoa = string.Empty;
-            phieuSangLoc.NgayGioXoa = null;
-            phieuSangLoc.NgayTaoPhieu = DateTime.Now;
-            if (!string.IsNullOrEmpty(phieuSangLoc.MaDVCS))
-                phieuSangLoc.MaTrungTam = this.donViCoSoRepository.GetMaTrungTamByMaDonViCS(phieuSangLoc.MaDVCS);
-            this.phieuSangLocRepository.Add(phieuSangLoc);
+            PhieuSangLoc.TrangThaiPhieu = false;
+            PhieuSangLoc.isKhongDat = false;
+            PhieuSangLoc.isDongBo = false;
+            PhieuSangLoc.isXoa = false;
+            PhieuSangLoc.isXNLan2 = false;
+            PhieuSangLoc.IDNhanVienXoa = string.Empty;
+            PhieuSangLoc.NgayGioXoa = null;
+            PhieuSangLoc.NgayTaoPhieu = DateTime.Now;
+            if (!string.IsNullOrEmpty(PhieuSangLoc.MaDVCS))
+                PhieuSangLoc.MaTrungTam = this.donViCoSoRepository.GetMaTrungTamByMaDonViCS(PhieuSangLoc.MaDVCS);
+            this.PhieuSangLocRepository.Add(PhieuSangLoc);
         }
 
         public IEnumerable<PhieuSangLoc> GetAll()
         {
-            return this.phieuSangLocRepository.GetAll();
+            return this.PhieuSangLocRepository.GetAll();
         }
 
         public void Save()
@@ -70,34 +70,34 @@ namespace Bionet.Service.Services
         public IEnumerable<PhieuSangLoc> GetAllHasCondition(string keyword)
         {
             if (!string.IsNullOrEmpty(keyword))
-                return phieuSangLocRepository.GetMulti(x => x.IDPhieu.Contains(keyword));
+                return PhieuSangLocRepository.GetMulti(x => x.IDPhieu.Contains(keyword));
             else
-                return phieuSangLocRepository.GetAll();
+                return PhieuSangLocRepository.GetAll();
         }
 
         public PhieuSangLoc GetById(string id)
         {
-            return phieuSangLocRepository.GetSingleByCondition(x => x.IDPhieu == id);
+            return PhieuSangLocRepository.GetSingleByCondition(x => x.IDPhieu == id);
         }
 
         public PhieuSangLoc GetByMaBenhNhan(string maBenhNhan)
         {
-            return phieuSangLocRepository.GetSingleByCondition(x => x.MaBenhNhan == maBenhNhan);
+            return PhieuSangLocRepository.GetSingleByCondition(x => x.MaBenhNhan == maBenhNhan);
         }
 
-        public void Update(PhieuSangLoc phieuSangLoc)
+        public void Update(PhieuSangLoc PhieuSangLoc)
         {
-            if (!string.IsNullOrEmpty(phieuSangLoc.MaDVCS))
-                phieuSangLoc.MaTrungTam = this.donViCoSoRepository.GetMaTrungTamByMaDonViCS(phieuSangLoc.MaDVCS);
-            phieuSangLocRepository.Update(phieuSangLoc);
+            if (!string.IsNullOrEmpty(PhieuSangLoc.MaDVCS))
+                PhieuSangLoc.MaTrungTam = this.donViCoSoRepository.GetMaTrungTamByMaDonViCS(PhieuSangLoc.MaDVCS);
+            PhieuSangLocRepository.Update(PhieuSangLoc);
         }
 
         public IEnumerable<PhieuSangLoc> GetAll(string lvCode)
         {
             if (lvCode != "0")
-                return phieuSangLocRepository.GetMulti(x => x.MaDVCS.StartsWith(lvCode));
+                return PhieuSangLocRepository.GetMulti(x => x.MaDVCS.StartsWith(lvCode));
             else
-                return phieuSangLocRepository.GetAll();
+                return PhieuSangLocRepository.GetAll();
         }
     }
 }

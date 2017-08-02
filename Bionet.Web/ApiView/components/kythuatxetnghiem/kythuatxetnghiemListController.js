@@ -24,7 +24,7 @@
 
         function deleteKyThuatXN(id) {
             $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
-                debugger;
+                 
                 var config = {
                     params: {
                         id: id
@@ -79,7 +79,7 @@
         {
             
             apiService.get('api/mapsxnthongso/getallthongsoxn?makythuat=' + maKyThuat, null, function (result) {
-                debugger;
+                 
                 $scope.serviceDetail = result.data;
                 loadthongsoxn();
             }, function () {
@@ -88,7 +88,7 @@
             )
         }
         function Update() {
-            debugger;
+             
             $scope.mapsupdate.idKyThuat = $scope.idKythuat;
             $scope.mapsupdate.mapxnts = $scope.serviceDetail;
             apiService.post('api/mapsxnthongso/update', $scope.mapsupdate, function (result) {

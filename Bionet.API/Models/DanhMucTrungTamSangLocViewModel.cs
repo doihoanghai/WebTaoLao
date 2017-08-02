@@ -26,5 +26,9 @@ namespace Bionet.API.Models
         public byte? Stt { get; set; }
 
         public byte? MaTongCuc { get; set; }
+
+        public string ID { get; set; }
+
+        public string LicenseKey { get; set; }
     }
 }

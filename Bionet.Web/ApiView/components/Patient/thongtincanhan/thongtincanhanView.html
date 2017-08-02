@@ -3,51 +3,51 @@
     <h4>THÔNG TIN GIA ĐÌNH</h4>
     <hr />
     <div class="form-group">
-        <label class="control-label col-md-2">Tên Mẹ:</label>
+        <label class="control-label col-md-2">Tên Mẹ :</label>
         <div class="col-md-4">
-            <label class="control-label">Tên của mẹ</label>
+            <label class="control-label" >{{thongtin.MotherName}}</label>
         </div>
         <label class="control-label col-md-2">Tên Cha:</label>
         <div class="col-md-4">
-            <label class="control-label">Tên của cha</label>
+            <label class="control-label">{{thongtin.FatherName}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Năm Sinh:</label>
         <div class="col-md-4">
-            <label class="control-label">Năm sinh của mẹ</label>
+            <label class="control-label">{{thongtin.MotherBirthday}}</label>
         </div>
         <label class="control-label col-md-2">Năm Sinh:</label>
         <div class="col-md-4">
-            <label class="control-label">Năm sinh của cha</label>
+            <label class="control-label">{{thongtin.FatherBirthday}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Số DT:</label>
         <div class="col-md-4">
-            <label class="control-label">Số điện thoại của mẹ</label>
+            <label class="control-label">{{thongtin.MotherPhoneNumber}}</label>
         </div>
         <label class="control-label col-md-2">Số DT:</label>
         <div class="col-md-4">
-            <label class="control-label">Số điện thoại của cha</label>
+            <label class="control-label">{{thongtin.FatherPhoneNumber}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Địa Chỉ:</label>
         <div class="col-md-10">
-            <label class="control-label">Địa chỉ</label>
+            <label class="control-label">{{thongtin.DiaChi}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">PP Sinh:</label>
         <div class="col-md-10">
-            <label class="control-label">PP Sinh 1</label>
+            <label class="control-label">{{phuongphapsinh[thongtin.PhuongPhapSinh]}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">PARA:</label>
         <div class="col-md-10">
-            <label class="control-label">PARA</label>
+            <label class="control-label">{{thongtin.Para}}</label>
         </div>
     </div>
 </div>
@@ -58,57 +58,51 @@
     <div class="form-group">
         <label class="control-label col-md-2">Nơi lấy mẫu:</label>
         <div class="col-md-10">
-            <label class="control-label">Nơi lấy mẫu</label>
+            <label class="control-label">{{thongtin.NoiLayMau}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Địa Chỉ:</label>
         <div class="col-md-10">
-            <label class="control-label">Địa chỉ</label>
+            <label class="control-label">{{thongtin.DiaChiLayMau}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Người Lấy Mẫu:</label>
         <div class="col-md-4">
-            <label class="control-label">Người lấy mẫu</label>
+            <label class="control-label">{{thongtin.TenNhanVienLayMau}}</label>
         </div>
         <label class="control-label col-md-2">Số ĐT:</label>
         <div class="col-md-4">
-            <label class="control-label">Số điện thoại</label>
+            <label class="control-label">{{thongtin.SDTNhanVienLayMau}}</label>
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-md-2">Người lấy mẫu:</label>
+        <label class="control-label col-md-2">Ngày lấy mẫu:</label>
         <div class="col-md-4">
-            <label class="control-label">Người lấy mẫu</label>
+            <label class="control-label">{{thongtin.NgayGioLayMau}}</label>
         </div>
         <label class="control-label col-md-2">Vào lúc:</label>
         <div class="col-md-4">
-            <label class="control-label">Vào lúc</label>
+            <label class="control-label">{{thongtin.NgayGioLayMauTime}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">M.Phiếu lần 1:</label>
         <div class="col-md-10">
-            <label class="control-label">M.Phiếu lần 1</label>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-md-2">Mã Phiếu:</label>
-        <div class="col-md-10">
-            <label class="control-label">Mã phiếu</label>
+            <label class="control-label">{{thongtin.IDPhieuLan1}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Đơn vị</label>
         <div class="col-md-10">
-            <label class="control-label">Đơn vị</label>
+            <label class="control-label">{{thongtin.TenDVCS}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Chương trình</label>
         <div class="col-md-10">
-            <label class="control-label">Chương trình</label>
+            <label class="control-label">{{thongtin.TenChuongTrinh}}</label>
         </div>
     </div>
 </div>
@@ -119,76 +113,76 @@
     <div class="form-group">
         <label class="control-label col-md-2">Tên Trẻ:</label>
         <div class="col-md-10">
-            <label class="control-label">Tên của trẻ</label>
+            <label class="control-label">{{thongtin.TenBenhNhan}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Giới tính:</label>
         <div class="col-md-10">
-            <label class="control-label">Giới tính</label>
+            <label class="control-label">{{sex[thongtin.GioiTinh]}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Sinh ngày:</label>
         <div class="col-md-4">
-            <label class="control-label">Sinh ngày</label>
+            <label class="control-label">{{thongtin.NgayGioSinh}}</label>
         </div>
         <label class="control-label col-md-2">Vào lúc:</label>
         <div class="col-md-4">
-            <label class="control-label">Vào lúc</label>
+            <label class="control-label">{{thongtin.NgayGioSinhTime}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Cân nặng:</label>
         <div class="col-md-4">
-            <label class="control-label">Cân nặng</label>
+            <label class="control-label">{{thongtin.CanNang}}</label>
         </div>
         <label class="control-label col-md-2">Tuần tuổi:</label>
         <div class="col-md-4">
-            <label class="control-label">Tuần tuổi</label>
+            <label class="control-label">{{thongtin.TuanTuoiKhiSinh}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Nơi sinh:</label>
         <div class="col-md-4">
-            <label class="control-label">Nơi sinh</label>
+            <label class="control-label">{{thongtin.NoiSinh}}</label>
         </div>
         <label class="control-label col-md-2">Dân tộc:</label>
         <div class="col-md-4">
-            <label class="control-label">Dân tộc</label>
+            <label class="control-label">{{thongtin.TenDanToc}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Tình Trạng:</label>
         <div class="col-md-10">
-            <label class="control-label">Tình trạng</label>
+            <label class="control-label">{{thongtin.TinhTrangLucLayMau}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Truyền lúc:</label>
         <div class="col-md-4">
-            <label class="control-label">Truyền lúc</label>
+            <label class="control-label">{{thongtin.NgayTruyenMau}}</label>
         </div>
         <label class="control-label col-md-2">SL:</label>
         <div class="col-md-4">
-            <label class="control-label">SL</label>
+            <label class="control-label">{{thongtin.SLTruyenMau}}</label>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-md-2">Chế độ dd:</label>
         <div class="col-md-4">
-            <label class="control-label">Chế độ dinh dưỡng</label>
+            <label class="control-label">{{chedodinhduong[thongtin.CheDoDinhDuong]}}</label>
         </div>
         <label class="control-label col-md-2">Vị trí lấy mẫu:</label>
         <div class="col-md-4">
-            <label class="control-label">Vị trí lấy mẫu</label>
+            <label class="control-label">{{vitrilaymau[thongtin.IDViTriLayMau]}}</label>
         </div>
     </div>
     <hr />
     <div class="form-group">
         <label class="control-label col-md-2">Gói XN:</label>
         <div class="col-md-10">
-            <label class="control-label">Gói XN</label>
+            <label class="control-label">{{thongtin.TenGoiDichVuC}}</label>
         </div>
     </div>
 </div>

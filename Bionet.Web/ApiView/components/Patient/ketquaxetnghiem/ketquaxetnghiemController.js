@@ -3,4 +3,4 @@
     function ($http, $q, $scope, loginService, $injector, notificationService, $location, apiService, authData) {
 
         }]);
-})(angular.module('bionet'));
+})(angular.module('bionet.ketquaxetnghiem'));

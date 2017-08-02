@@ -20,23 +20,23 @@
                                     </div>
                                     <label class="col-md-3 control-label">Mã phiếu:</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="maphieu" name="maphieu" ng-model="phieusangloc.IDPhieu" required class="form-control" readonly>
+                                        <input type="text" id="maphieu" name="maphieu" ng-model="thongtin.IDPhieu" required class="form-control" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label class="col-md-3 col-md-offset-3 control-label">Đơn vị:</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="maphieu" name="maphieu" ng-model="phieusangloc.MaDVCS" required class="form-control" readonly>
+                                        <input type="text" id="maphieu" name="maphieu" ng-model="thongtin.MaDVCS" required class="form-control" readonly>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
                                     <label class="col-md-3 col-md-offset-3 control-label">Chương trình:</label>
                                     <div class="col-md-6">
 
-                                        <input type="text" id="maphieu" name="maphieu" ng-model="phieusangloc.IDChuongTrinh" required class="form-control" readonly>
+                                        <input type="text" id="maphieu" name="maphieu" ng-model="thongtin.IDChuongTrinh" required class="form-control" readonly>
 
-                                        <input type="hidden" name="phieusangloc.IDChuongTrinh" ng-model="phieusangloc.IDChuongTrinh" readonly>
-                                        <!-- <select class="form-control" ng-model="phieusangloc.IDChuongTrinh" name="IDChuongTrinh" ng-options="option.IDChuongTrinh as option.TenChuongTrinh for option in chuongtrinh"> -->
+                                        <input type="hidden" name="thongtin.IDChuongTrinh" ng-model="thongtin.IDChuongTrinh" readonly>
+                                        <!-- <select class="form-control" ng-model="thongtin.IDChuongTrinh" name="IDChuongTrinh" ng-options="option.IDChuongTrinh as option.TenChuongTrinh for option in chuongtrinh"> -->
                                     </div>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="portlet-body">
-                <form role="form" name="frmAddPhieuSangLoc" ng-submit="AddPhieuSangLoc()">
+                <form role="form" name="frmAddthongtin" ng-submit="Addthongtin()">
                     
                     <div class="row">
                         <div class="col-md-6">
@@ -58,49 +58,49 @@
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-2 control-label">Tên mẹ:</label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" ng-model="phieusangloc." readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin." readonly>
                                         </div>
                                         <label class="col-md-2 control-label">Tên cha:</label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.FatherName" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.FatherName" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-2 control-label">Năm sinh:</label>
                                         <div class="col-md-4">
-                                            <input class="form-control" ng-model="phieusangloc.MotherBirthday" size="16" type="text" value="" readonly/>
+                                            <input class="form-control" ng-model="thongtin.MotherBirthday" size="16" type="text" value="" readonly/>
                                         </div>
                                         <label class="col-md-2 control-label">Năm sinh:</label>
                                         <div class="col-md-4">
-                                            <input class="form-control" ng-model="phieusangloc.FatherBirthday" size="16" type="text" value="" readonly />
+                                            <input class="form-control" ng-model="thongtin.FatherBirthday" size="16" type="text" value="" readonly />
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-2 control-label">Số ĐT:</label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.MotherPhoneNumber" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.MotherPhoneNumber" readonly>
                                         </div>
                                         <label class="col-md-2 control-label">Số ĐT:</label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.FatherPhoneNumber" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.FatherPhoneNumber" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-2 control-label">Địa chỉ:</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="diachi" ng-model="phieusangloc.DiaChi" class="form-control" readonly>
+                                            <input type="text" name="diachi" ng-model="thongtin.DiaChi" class="form-control" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-2 control-label">PP sinh:</label>
                                         <div class="col-md-10">
-                                            <input type="text" name="diachi" ng-model="phieusangloc.PhuongPhapSinh" class="form-control" readonly>
+                                            <input type="text" name="diachi" ng-model="thongtin.PhuongPhapSinh" class="form-control" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-2 control-label">PARA:</label>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.Para" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.Para" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -115,39 +115,39 @@
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-3 control-label">Nơi lấy mẫu:</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.NoiLayMau" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.NoiLayMau" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-3 control-label">Địa chỉ:</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.DiaChiLayMau" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.DiaChiLayMau" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-3 control-label">Người lấy mẫu:</label>
                                         <div class="col-md-4">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.TenNhanVienLayMau" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.TenNhanVienLayMau" readonly>
                                         </div>
                                         <label class="col-md-2 control-label">SĐT:</label>
                                         <div class="col-md-3">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.SDTNhanVienLayMau" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.SDTNhanVienLayMau" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-3 control-label">Ngày lấy mẫu:</label>
                                         <div class="col-md-4">
-                                            <input class="form-control form-control" ng-model="phieusangloc.NgayGioLayMau" size="16" type="text" value="" readonly />
+                                            <input class="form-control form-control" ng-model="thongtin.NgayGioLayMau" size="16" type="text" value="" readonly />
                                         </div>
                                         <label class="col-md-2 control-label">Vào lúc:</label>
                                         <div class="col-md-3">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.NgayGioLayMauTime" value="" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.NgayGioLayMauTime" value="" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-3 control-label">M.Phiếu lần 1:</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.IDPhieuLan1" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.IDPhieuLan1" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -164,43 +164,43 @@
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-2 control-label">Tên trẻ:</label>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.TenBenhNhan" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.TenBenhNhan" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-2 control-label">Giới tính:</label>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.GioiTinh" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.GioiTinh" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-2 control-label">Sinh ngày:</label>
                                         <div class="col-md-5">
-                                            <input class="form-control" ng-model="phieusangloc.NgayGioSinh" size="16" type="text" value="" readonly />
+                                            <input class="form-control" ng-model="thongtin.NgayGioSinh" size="16" type="text" value="" readonly />
                                         </div>
                                         <label class="col-md-2 control-label">Vào lúc:</label>
                                         <div class="col-md-3">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.NgayGioSinhTime" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.NgayGioSinhTime" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-2 control-label">Cân nặng:</label>
                                         <div class="col-md-5">
-                                            <input type="number" class="form-control" ng-model="phieusangloc.CanNang" readonly>
+                                            <input type="number" class="form-control" ng-model="thongtin.CanNang" readonly>
                                         </div>
                                         <label class="col-md-2 control-label">Tuần tuổi:</label>
                                         <div class="col-md-3">
-                                            <input type="number" class="form-control" ng-model="phieusangloc.TuanTuoiKhiSinh" readonly>
+                                            <input type="number" class="form-control" ng-model="thongtin.TuanTuoiKhiSinh" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-2 control-label">Nơi sinh:</label>
                                         <div class="col-md-5">
-                                            <input type="text" class="form-control" ng-model="phieusangloc.NoiSinh" readonly>
+                                            <input type="text" class="form-control" ng-model="thongtin.NoiSinh" readonly>
                                         </div>
                                         <label class="col-md-2 control-label">Dân tộc:</label>
                                         <div class="col-md-3">
-                                            <input class="form-control" ng-model="phieusangloc.DanTocID" name="DanTocID" ng-options="option.IDDanToc as option.TenDanToc for option in dantoc" readonly>
+                                            <input class="form-control" ng-model="thongtin.DanTocID" name="DanTocID" ng-options="option.IDDanToc as option.TenDanToc for option in dantoc" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
@@ -208,19 +208,19 @@
                                         <div class="col-md-9">
                                             <div class="radio-list" readonly>
                                                 <label style="font-size:12px;">
-                                                    <input type="radio" name="TinhTrangLucLayMau" ng-model="phieusangloc.TinhTrangLucLayMau" value="0" disabled> Bình thưởng
+                                                    <input type="radio" name="TinhTrangLucLayMau" ng-model="thongtin.TinhTrangLucLayMau" value="0" disabled> Bình thưởng
                                                 </label>
                                                 <label style="font-size:12px;">
-                                                    <input type="radio" name="TinhTrangLucLayMau" ng-model="phieusangloc.TinhTrangLucLayMau" value="1" disabled> Bị bệnh
+                                                    <input type="radio" name="TinhTrangLucLayMau" ng-model="thongtin.TinhTrangLucLayMau" value="1" disabled> Bị bệnh
                                                 </label>
                                                 <label style="font-size:12px;">
-                                                    <input type="radio" name="TinhTrangLucLayMau" ng-model="phieusangloc.TinhTrangLucLayMau" value="2" disabled> Dùng steroid
+                                                    <input type="radio" name="TinhTrangLucLayMau" ng-model="thongtin.TinhTrangLucLayMau" value="2" disabled> Dùng steroid
                                                 </label>
                                                 <label style="font-size:12px;">
-                                                    <input type="radio" name="TinhTrangLucLayMau" ng-model="phieusangloc.TinhTrangLucLayMau" value="3" disabled> Dùng kháng sinh
+                                                    <input type="radio" name="TinhTrangLucLayMau" ng-model="thongtin.TinhTrangLucLayMau" value="3" disabled> Dùng kháng sinh
                                                 </label>
                                                 <label style="font-size:12px;">
-                                                    <input type="radio" name="TinhTrangLucLayMau" ng-model="phieusangloc.TinhTrangLucLayMau" value="4" disabled> Truyền máu
+                                                    <input type="radio" name="TinhTrangLucLayMau" ng-model="thongtin.TinhTrangLucLayMau" value="4" disabled> Truyền máu
                                                 </label>
                                             </div>
                                         </div>
@@ -228,11 +228,11 @@
                                     <div class="form-group form-group-sm">
                                         <label class="col-md-2 control-label">Truyền lúc:</label>
                                         <div class="col-md-5">
-                                            <input class="form-control" ng-model="phieusangloc.NgayTruyenMau" size="16" type="text" value="" readonly />
+                                            <input class="form-control" ng-model="thongtin.NgayTruyenMau" size="16" type="text" value="" readonly />
                                         </div>
                                         <label class="col-md-2 control-label">SL:</label>
                                         <div class="col-md-3">
-                                            <input type="number" class="form-control" ng-model="phieusangloc.SLTruyenMau" readonly>
+                                            <input type="number" class="form-control" ng-model="thongtin.SLTruyenMau" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
@@ -240,13 +240,13 @@
                                         <div class="col-md-5">
                                             <div class="radio-list">
                                                 <label style="font-size:12px;">
-                                                    <input type="radio" name="CheDoDinhDuong" ng-model="phieusangloc.CheDoDinhDuong" value="0" disabled> Bú mẹ
+                                                    <input type="radio" name="CheDoDinhDuong" ng-model="thongtin.CheDoDinhDuong" value="0" disabled> Bú mẹ
                                                 </label>
                                                 <label style="font-size:12px;">
-                                                    <input type="radio" name="CheDoDinhDuong" ng-model="phieusangloc.CheDoDinhDuong" value="1" disabled> Bú bình
+                                                    <input type="radio" name="CheDoDinhDuong" ng-model="thongtin.CheDoDinhDuong" value="1" disabled> Bú bình
                                                 </label>
                                                 <label style="font-size:12px;">
-                                                    <input type="radio" name="CheDoDinhDuong" ng-model="phieusangloc.CheDoDinhDuong" value="2" disabled> Tĩnh mạch
+                                                    <input type="radio" name="CheDoDinhDuong" ng-model="thongtin.CheDoDinhDuong" value="2" disabled> Tĩnh mạch
                                                 </label>
                                             </div>
                                         </div>
@@ -254,13 +254,13 @@
                                         <div class="col-md-3">
                                             <div class="radio-list">
                                                 <label style="font-size:12px;">
-                                                    <input type="radio" name="IDViTriLayMau" ng-model="phieusangloc.IDViTriLayMau" value="0" disabled> Gót chân
+                                                    <input type="radio" name="IDViTriLayMau" ng-model="thongtin.IDViTriLayMau" value="0" disabled> Gót chân
                                                 </label>
                                                 <label style="font-size:12px;">
-                                                    <input type="radio" name="IDViTriLayMau" ng-model="phieusangloc.IDViTriLayMau" value="1" disabled> Tĩnh mạch
+                                                    <input type="radio" name="IDViTriLayMau" ng-model="thongtin.IDViTriLayMau" value="1" disabled> Tĩnh mạch
                                                 </label>
                                                 <label style="font-size:12px;">
-                                                    <input type="radio" name="IDViTriLayMau" ng-model="phieusangloc.IDViTriLayMau" value="2" disabled> Khác
+                                                    <input type="radio" name="IDViTriLayMau" ng-model="thongtin.IDViTriLayMau" value="2" disabled> Khác
                                                 </label>
                                             </div>
                                         </div>
@@ -277,7 +277,7 @@
                                         <div class="col-md-9">
                                             <div class="radio-list">
                                                 <label style="font-size:12px;" ng-repeat="item in goidichvu">
-                                                    <input type="radio" name="MaGoiXN" ng-model="phieusangloc.MaGoiXN" value="{{item.IDGoiDichVuChung}}"> {{item.TenGoiDichVuChung}}
+                                                    <input type="radio" name="MaGoiXN" ng-model="thongtin.MaGoiXN" value="{{item.IDGoiDichVuChung}}"> {{item.TenGoiDichVuChung}}
                                                 </label>
                                             </div>
                                         </div>

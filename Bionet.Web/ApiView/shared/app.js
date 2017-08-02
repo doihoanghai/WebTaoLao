@@ -18,9 +18,9 @@
          'bionet.chitietgoidichvu',
          'bionet.goidichvuchung',
          'bionet.kythuatxetnghiem',
-         'bionet.doimatkhau',
-         'bionet.ketquaxetnghiem',
          'bionet.thongtincanhan',
+         'bionet.ketquaxetnghiem',
+         'bionet.doimatkhau',
          'bionet.common'])
 
         .config(config)

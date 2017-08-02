@@ -5,7 +5,7 @@
 
     function phieusanglocAddController(apiService, authData, $scope, notificationService, $state, $stateParams) {
 
-        $scope.AddPhieuSangLoc = AddPhieuSangLoc;
+        $scope.Addphieusangloc = Addphieusangloc;
         $scope.checkExistMa = checkExistMa;
         $scope.authentication = authData.authenticationData;
 
@@ -13,7 +13,7 @@
             apiService.get('api/phieusangloc/getbyMa/' + ma, null, function (result) {
                 result.data = result.data;
                 if (result.data == null) {
-                    AddPhieuSangLoc();
+                    Addphieusangloc();
                 } else {
                     notificationService.displayError('Mã đã tồn tại.');
                 }
@@ -30,7 +30,7 @@
                 });
         }
 
-        function AddPhieuSangLoc() {
+        function Addphieusangloc() {
             $scope.phieusangloc.Username = $scope.authentication.userName;
             apiService.post('api/phieusangloc/create', $scope.phieusangloc,
                 function (result) {

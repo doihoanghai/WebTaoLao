@@ -48,7 +48,7 @@
             }
 
             apiService.get('/api/donvicoso/getall', config, function (result) {
-                debugger;
+                 
                 $scope.donvicoso = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
@@ -58,7 +58,7 @@
             });
         }
         function loadGoiDVTT(maDVCS) {
-            debugger;
+             
             $scope.maDVCS = maDVCS;
             loadGoiDVTTdetail(maDVCS);
 
@@ -74,7 +74,7 @@
         function loadGoiDVTTdetail(maDVCS) {
 
             apiService.get('api/goidichvuchung/getallGoiDichVuDVCS?maDVCS=' + maDVCS, null, function (result) {
-                debugger;
+                 
                 $scope.serviceDetail = result.data;
                 loadGoiDV();
             }, function () {
@@ -83,7 +83,7 @@
             )
         }
         function Update() {
-            debugger;
+             
             $scope.GoiDichVudonvicoso.lstGoiDichVu = $scope.serviceDetail;
             $scope.GoiDichVudonvicoso.MaTT = $scope.maDVCS;
             apiService.post('api/goidichvuchung/UpdateGoiDVDVCS', $scope.GoiDichVudonvicoso, function (result) {

@@ -7,7 +7,7 @@
 
         this.login = function (userName, password) {
             deferred = $q.defer();
-            debugger;
+             
             var data = "grant_type=password&username=" + userName + "&password=" + password;
             $http.post(apiService.apihost +'oauth/token', data, {
                 headers:
@@ -41,7 +41,7 @@
 
         this.logOut = function () {
             $http.get(apiService.apihost +'api/account/logout').then( function (response) {
-                debugger;
+                 
                 userInfo.access_token = null;
                 userInfo = null;
                 authData.authenticationData.IsAuthenticated = false;

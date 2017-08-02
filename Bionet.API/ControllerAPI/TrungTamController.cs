@@ -154,6 +154,8 @@ namespace Bionet.API.ControllerAPI
                     trungTamSangLocVm.MaTongCuc = 1;
                     var newTrungTam = new DanhMucTrungTamSangLoc();
                     newTrungTam.UpdateTrungTamSL(trungTamSangLocVm);
+                    newTrungTam.ID = Guid.NewGuid().ToString();
+                    newTrungTam.LicenseKey = "";
                     trungTamService.Add(newTrungTam);
                     trungTamService.Save();
 
@@ -180,6 +182,31 @@ namespace Bionet.API.ControllerAPI
                 {
                     var trungtamDb = trungTamService.GetById(trungTamSangLocVm.RowIDTTSL);
                     trungtamDb.UpdateTrungTamSL(trungTamSangLocVm);
+                    trungTamService.Update(trungtamDb);
+                    trungTamService.Save();
+
+                    response = request.CreateResponse(HttpStatusCode.OK);
+
+                }
+                return response;
+            });
+        }
+
+        [Route("updateFromApp")]
+        [Authorize(Roles ="TrungTamEdit")]
+        public HttpResponseMessage PutFromApp(HttpRequestMessage request, DanhMucTrungTamSangLocViewModel trungTamSangLocVm)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                HttpResponseMessage response = null;
+                if (!ModelState.IsValid)
+                {
+                    request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+                }
+                else
+                {
+                    var trungtamDb = trungTamService.GetById(trungTamSangLocVm.RowIDTTSL);
+                    trungtamDb.UpdateTTSLFromApp(trungTamSangLocVm);
                     trungTamService.Update(trungtamDb);
                     trungTamService.Save();
 

@@ -23,4 +23,4 @@
 
     }
 
-})(angular.module('bionet.account'));
+})(angular.module('bionet.doimatkhau'));

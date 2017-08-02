@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="portlet-body">
-                <form role="form" name="frmAddPhieuSangLoc"  ng-submit="AddPhieuSangLoc()">
+                <form role="form" name="frmAddphieusangloc"  ng-submit="Addphieusangloc()">
                     <div class="form-horizontal">
                         <div class="form-body">
                             <div class="form-group form-group-sm">
@@ -43,7 +43,7 @@
                                 <label class="col-md-3 control-label">Mã phiếu:</label>
                                 <div class="col-md-6">
                                     <input type="text" id="maphieu" name="maphieu" ng-model="phieusangloc.IDPhieu" required class="form-control" placeholder="Nhập mã phiếu" autofocus>
-                                    <span ng-show="frmAddPhieuSangLoc.maphieu.$invalid" class="color-red">Phải nhập mã phiếu</span>
+                                    <span ng-show="frmAddphieusangloc.maphieu.$invalid" class="color-red">Phải nhập mã phiếu</span>
                                 </div>
                             </div>
                             <div class="form-group form-group-sm">
@@ -317,7 +317,7 @@
                         </div>
                     </div>
                     <div class="center">
-                        <button class="btn btn-success" type="submit" ng-disabled="frmAddPhieuSangLoc.$invalid">Lưu</button>
+                        <button class="btn btn-success" type="submit" ng-disabled="frmAddphieusangloc.$invalid">Lưu</button>
                         <button class="btn btn-default" ui-sref="phieusangloc">Bỏ qua</button>
                     </div>
                 </form>

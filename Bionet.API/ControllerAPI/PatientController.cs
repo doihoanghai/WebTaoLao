@@ -10,6 +10,9 @@ using System.IO;
 using System.Web;
 using System.Threading.Tasks;
 using System.Net.Http.Headers;
+using Bionet.API.Models;
+using AutoMapper;
+using Bionet.Web.Models;
 
 namespace Bionet.API.ControllerAPI
 {
@@ -17,17 +20,50 @@ namespace Bionet.API.ControllerAPI
     public class PatientController : ApiControllerBase
     {
         private IPhieuSangLocService phieuSangLocService;
+        private IPatientService patientService;
 
-        public PatientController(IErrorService errorService, IPhieuSangLocService _phieuSangLocService) : base(errorService)
+
+        public PatientController(IErrorService errorService, IPhieuSangLocService _phieuSangLocService,IPatientService _patientService) : base(errorService)
         {
             phieuSangLocService = _phieuSangLocService;
+            patientService = _patientService;
         }
 
         [Route("getThongTin")]
         [HttpGet]
         public HttpResponseMessage getThongTin(HttpRequestMessage request,string mabenhnhan)
         {
-            return request.CreateResponse(HttpStatusCode.OK, phieuSangLocService.GetByMaBenhNhan(mabenhnhan));
+            mabenhnhan = "B1275d22b2-a557-4692-9b60-54c037e93dba";
+            return CreateHttpResponse(request, () =>
+            {
+                var model = phieuSangLocService.GetByMaBenhNhan(mabenhnhan);
+                var responseData = Mapper.Map<PhieuSangLoc, PhieuSangLocViewModel>(model);
+                var modelPatient = patientService.GetByMaBN(model.MaBenhNhan);
+                responseData = Mapper.Map<Patient, PhieuSangLocViewModel>(modelPatient, responseData);
+
+                IFormatProvider mFomatter = new System.Globalization.CultureInfo("en-CA");
+                if (!string.IsNullOrEmpty(responseData.NgayGioLayMau))
+                {
+                    string NgayGioLayMau = responseData.NgayGioLayMau.Substring(0, 10);
+                    DateTime NgayGioLayMauTime = DateTime.Parse(responseData.NgayGioLayMau.ToString(), mFomatter);
+                    responseData.NgayGioLayMau = NgayGioLayMau;
+                    responseData.NgayGioLayMauTime = NgayGioLayMauTime;
+                }
+                if (!string.IsNullOrEmpty(responseData.NgayGioSinh))
+                {
+                    string NgayGioSinh = responseData.NgayGioSinh.Substring(0, 10);
+                    DateTime NgayGioSinhTime = DateTime.Parse(responseData.NgayGioSinh, mFomatter);
+                    responseData.NgayGioSinh = NgayGioSinh;
+                    responseData.NgayGioSinhTime = NgayGioSinhTime;
+                }
+                if (!string.IsNullOrEmpty(responseData.MotherBirthday))
+                    responseData.MotherBirthday = responseData.MotherBirthday.Substring(0, 10);
+                if (!string.IsNullOrEmpty(responseData.FatherBirthday))
+                    responseData.FatherBirthday = responseData.FatherBirthday.Substring(0, 10);
+                var response = request.CreateResponse(HttpStatusCode.OK, responseData);
+
+                return response;
+            });
         }
         
         [Route("pushFileKQ")]

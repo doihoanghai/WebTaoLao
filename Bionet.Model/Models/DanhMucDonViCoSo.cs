@@ -41,5 +41,8 @@ namespace Bionet.Web.Models
         [MaxLength(15)]
         public string MaChiCuc { get; set; }
 
+        [MaxLength(50)]
+        public string TenBacSiDaiDien { get; set; }
+
     }
 }

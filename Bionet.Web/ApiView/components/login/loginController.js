@@ -18,7 +18,7 @@
 
                         var url =  'api/account/detail/' + $scope.loginData.userName + "/?password="+$scope.loginData.password;
                         apiService.get(url,null,function (response) {
-                            debugger;
+                             
                             authData.authenticationData.fullName = response.data.FullName;
                             leveluser = response.data.UserLevel;
                             if (leveluser != 0)

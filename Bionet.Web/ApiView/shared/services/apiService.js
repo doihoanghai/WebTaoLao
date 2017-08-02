@@ -52,7 +52,7 @@ hostapi = clinic[0].getElementsByTagName("host")[0].firstChild.data;
 
         function put(url, data, success, failure) {
             authenticationService.setHeader();
-            debugger;
+             
             $http.put(apihost + url, data).then(function (result) {
                 success(result);
             }, function (error) {
@@ -66,7 +66,7 @@ hostapi = clinic[0].getElementsByTagName("host")[0].firstChild.data;
             });
         }
         function get(url, params, success, failure) {
-        debugger;
+         
            authenticationService.setHeader();
            $http.get(apihost + url, params).then(function (result) {
                 success(result);

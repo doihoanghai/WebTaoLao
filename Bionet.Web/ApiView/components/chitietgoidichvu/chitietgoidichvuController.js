@@ -57,7 +57,7 @@
         function Update() {
             if ($scope.servicePackageCode != undefined)
             {
-                debugger;
+                 
                 $scope.chitietgoidichvu.lstDanhMucDichVu = $scope.serviceDetail;
                 $scope.chitietgoidichvu.IDGoiDichVuChung = $scope.servicePackageCode;
                 apiService.post('/api/chitietgoidichvu/update', $scope.chitietgoidichvu

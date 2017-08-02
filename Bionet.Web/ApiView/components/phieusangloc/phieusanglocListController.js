@@ -10,7 +10,7 @@
         $scope.getphieusangloc = getphieusangloc;
         $scope.keyword = '';
         $scope.search = search;
-        $scope.deletePhieuSangLoc = deletephieusangloc;
+        $scope.deletephieusangloc = deletephieusangloc;
         $scope.number = 5;
 
         function search() {

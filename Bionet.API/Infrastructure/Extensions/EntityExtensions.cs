@@ -86,6 +86,17 @@ namespace Bionet.API.Infrastructure.Extensions
             trungtam.Stt = trungtamVm.Stt;
         }
 
+        public static void UpdateTTSLFromApp(this DanhMucTrungTamSangLoc trungtam, DanhMucTrungTamSangLocViewModel trungtamVM)
+        {   
+            trungtam.TenTTSL = trungtamVM.TenTTSL;
+            trungtam.SDTTTSL = trungtamVM.SDTTTSL;
+            trungtam.DiaChiTTSL = trungtamVM.DiaChiTTSL;
+            trungtam.isLocked = trungtamVM.isLocked;
+            trungtam.LicenseKey = trungtamVM.LicenseKey;
+            trungtam.Logo = trungtamVM.Logo;
+            trungtam.HeaderReport = trungtamVM.HeaderReport;
+        }
+
         public static void UpdateChiCuc(this DanhMucChiCuc chicuc, DanhMucChiCucViewModel chicucVm)
         {
             chicuc.RowIDChiCuc = chicucVm.RowIDChiCuc;
@@ -108,6 +119,7 @@ namespace Bionet.API.Infrastructure.Extensions
             donvicoso.isLocked = donvicosoVm.isLocked;
             donvicoso.Stt = donvicosoVm.Stt;
             donvicoso.MaChiCuc = donvicosoVm.MaChiCuc;
+            donvicoso.TenBacSiDaiDien = donvicosoVm.TenBacSiDaiDien;
         }
         
 

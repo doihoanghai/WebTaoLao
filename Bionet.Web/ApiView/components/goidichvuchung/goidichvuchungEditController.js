@@ -8,7 +8,7 @@
         $scope.Updategoidichvuchung = Updategoidichvuchung;
 
         function loadGoiDichVuDetail() {
-            apiService.get('api/goidichvuchung/getbyid/' + $stateParams.id, null, function (result) {
+            apiService.get('api/goidichvuchung/getbyma/' + $stateParams.id, null, function (result) {
                 $scope.goidichvuchung = result.data;
             }, function (error) {
                 notificationService.displayError(error.data);

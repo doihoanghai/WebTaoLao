@@ -36,5 +36,10 @@ namespace Bionet.Web.Models
         public byte? Stt { get; set; }
 
         public byte? MaTongCuc { get; set; }
+
+        [MaxLength(39)]
+        public string ID { get; set; }
+
+        public string LicenseKey { get; set; }
     }
 }

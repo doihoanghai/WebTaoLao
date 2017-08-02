@@ -19,7 +19,7 @@
 
         function deletegoidichvuchung(id) {
             $ngBootbox.confirm('Bạn có chắc muốn xóa?').then(function () {
-                debugger;
+                 
                 var config = {
                     params: {
                         ma: id.id
@@ -43,13 +43,13 @@
                     pageSize: 20
                 }
             }
-            debugger;
+             
             apiService.get('/api/goidichvuchung/getall', config, function (result) {
                 $scope.goidichvuchung = result.data.Items;
                 $scope.page = result.data.Page;
                 $scope.pagesCount = result.data.TotalPages;
                 $scope.totalCount = result.data.TotalCount;
-                debugger;
+                 
             }, function () {
                 console.log('Load dịch vụ failed.');
             });
