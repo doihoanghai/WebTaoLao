@@ -72,6 +72,7 @@
     <Compile Include="Services\DanhMucDichVuTheoDonViService.cs" />
     <Compile Include="Services\DanhMucDichVuService.cs" />
     <Compile Include="Services\DanhMucGoiDichVuDVCSSerVice.cs" />
+    <Compile Include="Services\DotChuanDoanService.cs" />
     <Compile Include="Services\GoiDichVuTheoTrungTamService.cs" />
     <Compile Include="Services\DanhMucKyThuatXNService.cs" />
     <Compile Include="Services\DanhMucThongSoXNService.cs" />

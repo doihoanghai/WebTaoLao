@@ -93,6 +93,7 @@
     <Compile Include="Repositories\DanhMucQuocGiaRepository.cs" />
     <Compile Include="Repositories\DanhMucThongSoXNRepository.cs" />
     <Compile Include="Repositories\DanhMucTrungTamSangLocRepository.cs" />
+    <Compile Include="Repositories\DotChuanDoanRepository.cs" />
     <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\ErrorRepository.cs" />
     <Compile Include="Repositories\MapsXN_DichVuRepository.cs" />

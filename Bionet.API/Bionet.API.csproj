@@ -249,6 +249,7 @@
     <Compile Include="ControllerAPI\DanhMucThongSoXNController.cs" />
     <Compile Include="ControllerAPI\DichVuController.cs" />
     <Compile Include="ControllerAPI\DonViCoSoController.cs" />
+    <Compile Include="ControllerAPI\DotChuanDoanController.cs" />
     <Compile Include="ControllerAPI\EmployeeController.cs" />
     <Compile Include="ControllerAPI\GoiDichVuChungController.cs" />
     <Compile Include="ControllerAPI\HomeController.cs" />

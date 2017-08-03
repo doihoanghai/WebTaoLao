@@ -12,6 +12,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Bionet.Web.Models;
+using Newtonsoft.Json;
+using System.Web;
 
 namespace Bionet.API.ControllerAPI
 {
@@ -21,11 +23,14 @@ namespace Bionet.API.ControllerAPI
     {
         private IXN_KetQuaService xN_KetQuaService;
         private IXN_KetQua_ChiTietService xN_KetQuaChiTietService;
+        private ApplicationUserManager userManager;
 
-        public XNKetQuaController(IErrorService errorService, IXN_KetQuaService _xN_KetQuaService, IXN_KetQua_ChiTietService _xN_KetQuaChiTietService) : base(errorService)
+
+        public XNKetQuaController(IErrorService errorService, IXN_KetQuaService _xN_KetQuaService, IXN_KetQua_ChiTietService _xN_KetQuaChiTietService,ApplicationUserManager _userManager) : base(errorService)
         {
             this.xN_KetQuaService = _xN_KetQuaService;
             this.xN_KetQuaChiTietService = _xN_KetQuaChiTietService;
+            this.userManager = _userManager;
         }
 
         [Route("getall")]
@@ -64,6 +69,25 @@ namespace Bionet.API.ControllerAPI
 
                 return response;
             });
+        }
+
+        [Route("AddUpFromApp")]
+        public HttpResponseMessage addupp(HttpRequestMessage request)
+        {
+            HttpContent requestContent = Request.Content;
+            string jsonContent = requestContent.ReadAsStringAsync().Result;
+            XN_KetQuaViewModel ketQuaVm = JsonConvert.DeserializeObject<XN_KetQuaViewModel>(jsonContent);
+
+            var userName = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
+            var user = userManager.FindByNameAsync(userName).Result;
+
+            if (ketQuaVm.MaDVCS.Contains(user.LevelCode) && ketQuaVm.MaTrungTam == user.LevelCode)
+            {
+                return Create(request, ketQuaVm);
+            }
+            else
+                return request.CreateResponse(HttpStatusCode.BadRequest);
+
         }
     }
 }
