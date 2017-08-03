@@ -38,7 +38,7 @@ namespace Bionet.API.ControllerAPI
             if (dotchuandoan.MaDVCS.Contains(user.LevelCode) && dotchuandoan.MaTrungTam == user.LevelCode)
             {
                 DotChuanDoan dcd = this.dotChuanDoanService.GetByMa(dotchuandoan.MaDotChuanDoan);
-                if(dcd == null)
+                if (dcd == null)
                 {
                     this.dotChuanDoanService.Add(dotchuandoan);
                 }

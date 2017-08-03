@@ -17,7 +17,7 @@ using System.Web;
 namespace Bionet.API.ControllerAPI
 {
     [RoutePrefix("api/dichvu")]
-//    [Authorize]
+    [Authorize]
     public class DichVuController : ApiControllerBase
     {
         private IDanhMucDichVuService dichVuService;

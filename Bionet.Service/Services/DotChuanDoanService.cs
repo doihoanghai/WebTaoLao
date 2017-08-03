@@ -34,7 +34,7 @@ namespace Bionet.Service.Services
             this.unitOfWork = _unitOfWork;
         }
 
-  
+
         public void Add(DotChuanDoan dotchuandoan)
         {
             dotChuanDoanRepository.Add(dotchuandoan);
