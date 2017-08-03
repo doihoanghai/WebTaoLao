@@ -167,7 +167,7 @@ namespace Bionet.API.ControllerAPI
 
         [Route("AddUpFromApp")]
         [HttpPost]
-        [Authorize(Roles = "PhieuSangLocEdit"]
+        [Authorize(Roles = "PhieuSangLocEdit")]
         public HttpResponseMessage addupFromApp(HttpRequestMessage request)
         {
             HttpContent requestContent = Request.Content;
@@ -179,7 +179,7 @@ namespace Bionet.API.ControllerAPI
 
             if (phieuSangLocVm.MaTrungTam != user.LevelCode && !phieuSangLocVm.IDPhieu.Contains(user.LevelCode))
             {
-                return request.CreateResponse(HttpStatusCode.ExpectationFailed,"Phiếu " + phieuSangLocVm.IDPhieu + "không thuộc trung tâm " + lvCode);
+                return request.CreateResponse(HttpStatusCode.ExpectationFailed,"Phiếu " + phieuSangLocVm.IDPhieu + "không thuộc trung tâm " + user.LevelCode);
             }
 
             HttpResponseMessage response = null;
