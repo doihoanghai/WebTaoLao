@@ -19,6 +19,8 @@ namespace Bionet.Service.Services
 
         DanhMucChiCuc GetById(int id);
 
+        DanhMucChiCuc GetByMa(string ma);
+
         void Add(DanhMucChiCuc danhmucDichVu);
 
         void Update(DanhMucChiCuc danhmucDichVu);
@@ -104,6 +106,11 @@ namespace Bionet.Service.Services
         public void Update(DanhMucChiCuc danhmucChiCuc)
         {
             danhMucChiCucRepository.Update(danhmucChiCuc);
+        }
+
+        public DanhMucChiCuc GetByMa(string ma)
+        {
+            return danhMucChiCucRepository.GetSingleByCondition(x => x.MaChiCuc == ma);
         }
     }
 }

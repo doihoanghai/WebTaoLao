@@ -175,9 +175,9 @@ namespace Bionet.API.ControllerAPI
             PhieuSangLocViewModel phieuSangLocVm = JsonConvert.DeserializeObject<PhieuSangLocViewModel>(jsonContent);
 
             var userName = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
-            var lvCode = userManager.FindByNameAsync(userName).Result.LevelCode;
+            var user = userManager.FindByNameAsync(userName).Result;
 
-            if (phieuSangLocVm.MaTrungTam != lvCode && !phieuSangLocVm.IDPhieu.Contains(lvCode))
+            if (phieuSangLocVm.MaTrungTam != user.LevelCode && !phieuSangLocVm.IDPhieu.Contains(user.LevelCode))
             {
                 return request.CreateResponse(HttpStatusCode.ExpectationFailed,"Phiếu " + phieuSangLocVm.IDPhieu + "không thuộc trung tâm " + lvCode);
             }
@@ -189,7 +189,7 @@ namespace Bionet.API.ControllerAPI
             {
                 var newPhieu = new PhieuSangLoc();
                 newPhieu.UpdatePhieuSangLoc(phieuSangLocVm);
-                ApplicationUser user = this.userManager.FindByNameAsync(phieuSangLocVm.Username).Result;
+                
                 var lvcode = user.LevelCode;
                 newPhieu.IDNhanVienTaoPhieu = user.Id;
                 var newPatient = new Patient();
@@ -222,6 +222,8 @@ namespace Bionet.API.ControllerAPI
         [Authorize(Roles = "PhieuSangLocCreate")]
         public HttpResponseMessage Create(HttpRequestMessage request, PhieuSangLocViewModel phieuSangLocVm)
         {
+            var userName = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
+            var user = userManager.FindByNameAsync(userName).Result;
             return CreateHttpResponse(request, () =>
             {
                 HttpResponseMessage response = null;
@@ -250,7 +252,6 @@ namespace Bionet.API.ControllerAPI
                     {
                         var newPhieu = new PhieuSangLoc();
                         newPhieu.UpdatePhieuSangLoc(phieuSangLocVm);
-                        ApplicationUser user = this.userManager.FindByNameAsync(phieuSangLocVm.Username).Result;
                         var lvcode = user.LevelCode;
                         newPhieu.IDNhanVienTaoPhieu = user.Id;
                         var newPatient = new Patient();
