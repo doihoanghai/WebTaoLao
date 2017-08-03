@@ -4,9 +4,9 @@
             <a href="javascript:;">Danh mục</a>
         </li>
         <li>
-            <a ui-sref="goidichvuchung">Gói dịch vụ chung</a>
+            <a ui-sref="trungtam">trung tâm</a>
         </li>
-        <li>Chỉnh sửa gói dịch vụ</li>
+        <li>Chỉnh sửa trung tâm</li>
     </ul>
 </div>
 <br />
@@ -16,42 +16,56 @@
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-social-dribbble font-blue-sharp"></i>
-                    <span class="caption-subject font-blue-sharp bold uppercase">Chỉnh sửa gói dịch vụ</span>
+                    <span class="caption-subject font-blue-sharp bold uppercase">Chỉnh sửa danh mục trung tâm</span>
                 </div>
             </div>
             <div class="portlet-body">
-                <form class="form-horizontal" novalidate name="UpdateTrungTam" role="form" ng-submit="Updategoidichvu()">
+                <form class="form-horizontal" novalidate name="frmUpdatetrungtam" role="form" ng-submit="Updatetrungtam()">
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="col-md-2 control-label">Mã gói dịch vụ :</label>
+                            <label class="col-md-2 control-label">Mã trung tâm:</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" required name="IDGoiDichVuChung" ng-model="goidichvuchung.IDGoiDichVuChung" readonly placeholder="Nhập mã gói dịch vụ">
-                                <span ng-show="Updategoidichvuchung.IDGoiDichVuChung.$invalid" class="color-red">Phải nhập mã gói dịch vụ</span>
+                                <input type="text" class="form-control" readonly name="Matrungtam" ng-model="trungtam.MaTTSL" placeholder="" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-2 control-label">Tên gói dịch vụ:</label>
+                            <label class="col-md-2 control-label">Tên trung tâm:</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" required name="TenTTSL" ng-model="goidichvuchung.TenGoiDichVuChung" placeholder="Nhập tên gói dịch vụ">
-                                <span ng-show="Updategoidichvuchung.TenGoiDichVuChung.$invalid" class="color-red">Phải nhập tên gói dịch vụ</span>
+                                <input type="text" class="form-control" required name="Tentrungtam" ng-model="trungtam.TenTTSL" placeholder="Nhập tên trung tâm">
+                                <span ng-show="frmUpdatetrungtam.Tentrungtam.$invalid" class="color-red">Phải nhập tên trung tâm</span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-2 control-label">Chiết khấu :</label>
+                            <label class="col-md-2 control-label">Số điện thoại:</label>
                             <div class="col-md-10">
-                                <input type="number" class="form-control" ng-model="goidichvuchung.ChietKhau" placeholder="Nhập chiết khấu">
+                                <input type="text" class="form-control" ng-model="trungtam.SDTTTSL" placeholder="Nhập số điện thoại cho trung tâm">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-2 control-label">Đơn giá :</label>
+                            <label class="col-md-2 control-label">Địa chỉ:</label>
                             <div class="col-md-10">
-                                <input type="number" class="form-control" ng-model="goidichvuchung.DonGia" placeholder="Nhập đơn giá"></input>
+                                <textarea type="text" class="form-control" ng-model="trungtam.DiaChiTTSL" rows="3" placeholder="Nhập địa chỉ cho trung tâm"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Số thứ tự:</label>
+                            <div class="col-md-10">
+                                <input type="number" class="form-control" ng-model="trungtam.Stt" placeholder="Nhập số thứ tự">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="status" ng-model="trungtam.isLocked" ng-checked="trungtam.isLocked"> isLocked
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="center">
-                                <button type="submit" class="btn btn-success" ng-disabled="Updategoidichvuchung.$invalid">Thêm</button>
-                                <button ui-sref="goidichvuchung" class="btn btn-default">Bỏ qua</button>
+                                <button type="submit" class="btn btn-success" ng-disabled="frmUpdatetrungtam.$invalid">Lưu</button>
+                                <button ui-sref="trungtamsangloc" class="btn btn-default">Bỏ qua</button>
                             </div>
                         </div>
                     </div>

@@ -79,5 +79,8 @@ namespace Bionet.Web.Models
         public string IDNhanVienXoa { get; set; }
 
         public DateTime? NgayGioXoa { get; set; }
+
+        [MaxLength(200)]
+        public string Email { get; set; }
     }
 }

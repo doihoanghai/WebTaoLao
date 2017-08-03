@@ -12,6 +12,7 @@ using Bionet.API.Infrastructure.Core;
 using Bionet.API.Infrastructure.Extensions;
 using Bionet.Web.Models;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace Bionet.API.ControllerAPI
 {
@@ -193,11 +194,16 @@ namespace Bionet.API.ControllerAPI
         }
 
         [Route("updateFromApp")]
+        [HttpPost]
         [Authorize(Roles ="TrungTamEdit")]
-        public HttpResponseMessage PutFromApp(HttpRequestMessage request, DanhMucTrungTamSangLocViewModel trungTamSangLocVm)
+        public HttpResponseMessage PutFromApp(HttpRequestMessage request)
         {
             return CreateHttpResponse(request, () =>
             {
+                HttpContent requestContent = Request.Content;
+                string jsonContent = requestContent.ReadAsStringAsync().Result;
+                DanhMucTrungTamSangLocViewModel trungTamSangLocVm = JsonConvert.DeserializeObject<DanhMucTrungTamSangLocViewModel>(jsonContent);
+
                 HttpResponseMessage response = null;
                 if (!ModelState.IsValid)
                 {
@@ -205,7 +211,7 @@ namespace Bionet.API.ControllerAPI
                 }
                 else
                 {
-                    var trungtamDb = trungTamService.GetById(trungTamSangLocVm.RowIDTTSL);
+                    var trungtamDb = trungTamService.GetByMa(trungTamSangLocVm.MaTTSL);
                     trungtamDb.UpdateTTSLFromApp(trungTamSangLocVm);
                     trungTamService.Update(trungtamDb);
                     trungTamService.Save();

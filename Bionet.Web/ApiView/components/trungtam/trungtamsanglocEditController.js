@@ -5,18 +5,19 @@
 
     function trungtamsanglocEditController(apiService, $scope, notificationService, $state, $stateParams) {
 
-        $scope.Updategoidichvu = Updategoidichvu;
+        $scope.Updatetrungtam = Updatetrungtam;
 
-        function loadDichVuDetail() {
+        function loadtrungtamdetail() {
             apiService.get('api/trungtamsangloc/getbyid/' + $stateParams.id, null, function (result) {
-                $scope.trungtamsangloc = result.data;
+                $scope.trungtam = result.data;
             }, function (error) {
                 notificationService.displayError(error.data);
             });
         }
 
-        function Updategoidichvu() {
-            apiService.put('api/trungtamsangloc/update', $scope.trungtamsangloc,
+        function Updatetrungtam() {
+            debugger;
+            apiService.put('api/trungtamsangloc/update', $scope.trungtam,
                 function (result) {
                     notificationService.displaySuccess('Dữ liệu đã được cập nhật.');
                     $state.go('trungtamsangloc');
@@ -25,7 +26,7 @@
                 });
         }
 
-        loadDichVuDetail();
+        loadtrungtamdetail();
     }
 
 })(angular.module('bionet.trungtamsangloc'));

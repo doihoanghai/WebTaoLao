@@ -44,5 +44,7 @@ namespace Bionet.Web.Models
         [MaxLength(50)]
         public string TenBacSiDaiDien { get; set; }
 
+        [MaxLength(200)]
+        public string Email { get; set; }
     }
 }
