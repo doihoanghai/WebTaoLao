@@ -1,15 +1,9 @@
-﻿using Bionet.Data.Infrastructure;
-using Bionet.Data.Repositories;
-using Bionet.API.Models;
+﻿using Bionet.API.Models;
 using Bionet.Service.Services;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using Bionet.API.Models;
 using System.Web.Http;
-using Bionet.API.Infrastructure.Extensions;
 using Bionet.Web.Models;
 using Newtonsoft.Json;
 using System.Web;
