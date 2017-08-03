@@ -16,6 +16,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Bionet.Web.Models;
 using System.Web;
+using Newtonsoft.Json;
 
 namespace Bionet.API.ControllerAPI
 {
@@ -162,6 +163,58 @@ namespace Bionet.API.ControllerAPI
 
                 return response;
             });
+        }
+
+        [Route("AddUpFromApp")]
+        [HttpPost]
+        [Authorize(Roles = "PhieuSangLocEdit"]
+        public HttpResponseMessage addupFromApp(HttpRequestMessage request)
+        {
+            HttpContent requestContent = Request.Content;
+            string jsonContent = requestContent.ReadAsStringAsync().Result;
+            PhieuSangLocViewModel phieuSangLocVm = JsonConvert.DeserializeObject<PhieuSangLocViewModel>(jsonContent);
+
+            var userName = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
+            var lvCode = userManager.FindByNameAsync(userName).Result.LevelCode;
+
+            if (phieuSangLocVm.MaTrungTam != lvCode && !phieuSangLocVm.IDPhieu.Contains(lvCode))
+            {
+                return request.CreateResponse(HttpStatusCode.ExpectationFailed,"Phiếu " + phieuSangLocVm.IDPhieu + "không thuộc trung tâm " + lvCode);
+            }
+
+            HttpResponseMessage response = null;
+
+            var phieuDB = phieuSangLocService.GetById(phieuSangLocVm.IDPhieu);
+            if(phieuDB == null)
+            {
+                var newPhieu = new PhieuSangLoc();
+                newPhieu.UpdatePhieuSangLoc(phieuSangLocVm);
+                ApplicationUser user = this.userManager.FindByNameAsync(phieuSangLocVm.Username).Result;
+                var lvcode = user.LevelCode;
+                newPhieu.IDNhanVienTaoPhieu = user.Id;
+                var newPatient = new Patient();
+                newPatient.UpdatePatient(phieuSangLocVm);
+                newPhieu.MaBenhNhan = lvcode[1] + lvcode[2] + Guid.NewGuid().ToString();
+                newPatient.MaBenhNhan = newPhieu.MaBenhNhan;
+                phieuSangLocService.Add(newPhieu);
+                patientService.Add(newPatient);
+                phieuSangLocService.Save();
+                response = request.CreateResponse(HttpStatusCode.Created, phieuSangLocVm);
+            }
+            else
+            {
+                phieuDB.UpdatePhieuSangLoc(phieuSangLocVm);
+                var patientDB = patientService.GetByMaBN(phieuSangLocVm.MaBenhNhan);
+                patientDB.UpdatePatient(phieuSangLocVm);
+
+                this.phieuSangLocService.Update(phieuDB);
+                this.patientService.Update(patientDB);
+                donViCoSoService.Save();
+
+                response = request.CreateResponse(HttpStatusCode.OK);
+            }
+            return response;
+
         }
 
         [Route("create")]

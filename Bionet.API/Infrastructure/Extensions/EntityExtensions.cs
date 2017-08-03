@@ -120,6 +120,7 @@ namespace Bionet.API.Infrastructure.Extensions
             donvicoso.Stt = donvicosoVm.Stt;
             donvicoso.MaChiCuc = donvicosoVm.MaChiCuc;
             donvicoso.TenBacSiDaiDien = donvicosoVm.TenBacSiDaiDien;
+            donvicoso.Email = donvicosoVm.Email;
         }
         
 
@@ -216,7 +217,10 @@ namespace Bionet.API.Infrastructure.Extensions
             patient.IDThaiPhuTienSoSinh = phieusanglocVm.IDThaiPhuTienSoSinh;
             patient.IDNhanVienXoa = phieusanglocVm.IDNhanVienXoa;
             patient.NgayGioXoa = phieusanglocVm.NgayGioXoa;
+            patient.Email = patient.Email;
         }
+
+
 
         public static void UpdateDanhGiaChatLuong(this DanhMucDanhGiaChatLuongMau danhGiaChatLuong, DanhMucDanhGiaChatLuongViewModel danhGiaChatLuongVm)
         {

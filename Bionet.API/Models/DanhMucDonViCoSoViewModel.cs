@@ -30,7 +30,7 @@ namespace Bionet.API.Models
         public string TenChiCuc { get; set; }
 
         public string TenBacSiDaiDien { get; set; }
-       
 
+        public string Email { get; set; }
     }
 }
