@@ -25,7 +25,6 @@ namespace Bionet.API.Models
 
         public byte? IDViTriLayMau { get; set; }
 
-        public string Username { get; set; }
         public string IDNhanVienLayMau { get; set; }
 
         public bool isLayMauLan2 { get; set; }
