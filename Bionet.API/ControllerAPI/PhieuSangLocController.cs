@@ -167,7 +167,7 @@ namespace Bionet.API.ControllerAPI
 
         [Route("AddUpFromApp")]
         [HttpPost]
-        [Authorize(Roles = "PhieuSangLocEdit"]
+        [Authorize(Roles = "PhieuSangLocEdit")]
         public HttpResponseMessage addupFromApp(HttpRequestMessage request)
         {
             HttpContent requestContent = Request.Content;
