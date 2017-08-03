@@ -193,6 +193,7 @@ namespace Bionet.API.ControllerAPI
         }
 
         [Route("updateFromApp")]
+        [HttpPost]
         [Authorize(Roles ="TrungTamEdit")]
         public HttpResponseMessage PutFromApp(HttpRequestMessage request, DanhMucTrungTamSangLocViewModel trungTamSangLocVm)
         {
@@ -205,7 +206,7 @@ namespace Bionet.API.ControllerAPI
                 }
                 else
                 {
-                    var trungtamDb = trungTamService.GetById(trungTamSangLocVm.RowIDTTSL);
+                    var trungtamDb = trungTamService.GetByMa(trungTamSangLocVm.MaTTSL);
                     trungtamDb.UpdateTTSLFromApp(trungTamSangLocVm);
                     trungTamService.Update(trungtamDb);
                     trungTamService.Save();
