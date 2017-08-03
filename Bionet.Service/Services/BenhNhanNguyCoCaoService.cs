@@ -14,6 +14,11 @@ namespace Bionet.Service.Services
         IEnumerable<BenhNhanNguyCoCao> GetAll();
 
         IEnumerable<BenhNhanNguyCoCao> GetAll(string lvCode);
+
+        BenhNhanNguyCoCao GetByMa(string ma);
+
+        void Save();
+        void AddUp(BenhNhanNguyCoCao benhnhan);
     }
     public class BenhNhanNguyCoCaoService : IBenhNhanNguyCoCaoService
     {
@@ -25,6 +30,21 @@ namespace Bionet.Service.Services
             this.benhNhanNguyCoCaoRepository = _benhNhanNguyCoCaoRepository;
             this.unitOfWork = _unitOfWork;
         }
+
+        public void AddUp(BenhNhanNguyCoCao benhnhan)
+        {
+            var check = this.benhNhanNguyCoCaoRepository.GetSingleByCondition(x => x.MaBenhNhan == benhnhan.MaBenhNhan);
+            if(check == null)
+            {
+                this.benhNhanNguyCoCaoRepository.Add(benhnhan);
+            }
+            else
+            {
+                this.benhNhanNguyCoCaoRepository.Update(benhnhan);
+            }
+
+        }
+
         public IEnumerable<BenhNhanNguyCoCao> GetAll()
         {
             return this.benhNhanNguyCoCaoRepository.GetAll();
@@ -33,9 +53,19 @@ namespace Bionet.Service.Services
         public IEnumerable<BenhNhanNguyCoCao> GetAll(string lvCode)
         {
             if (lvCode != "0")
-                return benhNhanNguyCoCaoRepository.GetMulti(x => x.MaDonVi.StartsWith(lvCode));
+                return benhNhanNguyCoCaoRepository.GetMulti(x => x.MaDVCS.StartsWith(lvCode));
             else
                 return benhNhanNguyCoCaoRepository.GetAll();
+        }
+
+        public BenhNhanNguyCoCao GetByMa(string ma)
+        {
+            return this.benhNhanNguyCoCaoRepository.GetSingleByCondition(x => x.MaBenhNhan == ma);
+        }
+
+        public void Save()
+        {
+            unitOfWork.Commit();
         }
     }
 }

@@ -1,6 +1,12 @@
-﻿using Bionet.API.Infrastructure;
+﻿using AutoMapper;
+using Bionet.API.Infrastructure;
+using Bionet.API.Infrastructure.Core;
 using Bionet.API.Models;
 using Bionet.Service.Services;
+using Bionet.Web.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -26,6 +32,30 @@ namespace Bionet.API.ControllerAPI
             return CreateHttpResponse(request, () =>
             {
                 var response = request.CreateResponse(HttpStatusCode.OK);
+                return response;
+            });
+        }
+
+        [Route("appgetall")]
+
+        public HttpResponseMessage GetAll(HttpRequestMessage request, string keyword, int page, int pageSize = 20)
+        {
+            return CreateHttpResponse(request, () =>
+            {
+                int totalRow = 0;
+                var model = chiTietGoiDichVuService.getAll();
+
+                totalRow = model.Count();
+                var query = model.OrderByDescending(x => x.RowIDChiTietGoiDichVuChung).Skip(page * pageSize).Take(pageSize);
+               
+                var paginationSet = new PaginationSet<ChiTietGoiDichVuChung>()
+                {
+                    Items = model,
+                    Page = page,
+                    TotalCount = totalRow,
+                    TotalPages = (int)Math.Ceiling((decimal)totalRow / pageSize)
+                };
+                var response = request.CreateResponse(HttpStatusCode.OK, paginationSet);
                 return response;
             });
         }

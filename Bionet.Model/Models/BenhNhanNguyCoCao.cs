@@ -31,9 +31,6 @@ namespace Bionet.Web.Models
         [MaxLength(60)]
         public string TenBenhNhan { get; set; }
 
-        [MaxLength(15)]
-        public string MaDonVi { get; set; }
-
         [MaxLength(38)]
         public string MaThongTin { get; set; }
 
