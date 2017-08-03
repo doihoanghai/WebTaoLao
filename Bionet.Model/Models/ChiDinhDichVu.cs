@@ -56,5 +56,8 @@ namespace Bionet.Web.Models
 
         public bool isNhapLieu { get; set; }
 
+        [MaxLength(3)]
+        public string MaTrungTam { get; set; }
+
     }
 }

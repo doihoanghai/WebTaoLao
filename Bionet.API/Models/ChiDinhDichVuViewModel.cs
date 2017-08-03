@@ -46,6 +46,8 @@ namespace Bionet.API.Models
 
         public bool isNhapLieu { get; set; }
 
+        public string MaTrungTam { get; set; }
+
         public List<ChiDinhDichVuChiTietViewModel> listCDDVCTVM { get; set; }
 
     }

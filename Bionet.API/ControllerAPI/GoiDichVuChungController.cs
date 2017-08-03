@@ -12,6 +12,7 @@ using Bionet.API.Infrastructure.Core;
 using AutoMapper;
 using Bionet.API.Infrastructure.Extensions;
 using Bionet.API.Models;
+using Newtonsoft.Json;
 
 namespace Bionet.API.ControllerAPI
 {
@@ -235,21 +236,42 @@ namespace Bionet.API.ControllerAPI
 
         }
 
-        [Route("UpdateGoiDVTT")]
-        public HttpResponseMessage updateGoiDVTT(HttpRequestMessage request, GoiDichVuTrungTamViewModel goidvTrungTam)
+        [Route("AddUpFromApp")]
+        [HttpPost]
+        public HttpResponseMessage AddUppFromApp(HttpRequestMessage request)
         {
-            goiDichVuTrungTamService.delete(goidvTrungTam.MaTT);
-            this.goiDichVuTrungTamService.Add(goidvTrungTam.MaTT, goidvTrungTam.lstGoiDichVu);
+            HttpContent requestContent = Request.Content;
+            string jsonContent = requestContent.ReadAsStringAsync().Result;
+            GoiDichVuTheoDonViViewModel goidvdvcsVm = JsonConvert.DeserializeObject<GoiDichVuTheoDonViViewModel>(jsonContent);
+
+            var userName = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
+            var user = userManager.FindByNameAsync(userName).Result;
+
+            if (goidvdvcsVm.Ma.Contains(user.LevelCode))
+            {
+                return updateGoiDVTT(request,goidvdvcsVm);
+            }
+            else
+            {
+                return request.CreateResponse(HttpStatusCode.BadRequest, "Sai mã trung tâm tại mã chi cục hoặc mã trung tâm");
+            }
+        }
+
+        [Route("UpdateGoiDVTT")]
+        public HttpResponseMessage updateGoiDVTT(HttpRequestMessage request, GoiDichVuTheoDonViViewModel goidvTrungTam)
+        {
+            goiDichVuTrungTamService.delete(goidvTrungTam.Ma);
+            this.goiDichVuTrungTamService.Add(goidvTrungTam.Ma, goidvTrungTam.lstGoiDichVu);
             this.goiDichVuTrungTamService.Save();
             return request.CreateResponse(HttpStatusCode.OK);
         }
 
         [Route("UpdateGoiDVDVCS")]
-        public HttpResponseMessage updateGoiDVDVCS(HttpRequestMessage request, GoiDichVuTrungTamViewModel goidvTrungTam)
+        public HttpResponseMessage updateGoiDVDVCS(HttpRequestMessage request, GoiDichVuTheoDonViViewModel goidvTrungTam)
         {
-            goiDichVuDVCSService.delete(goidvTrungTam.MaTT);
+            goiDichVuDVCSService.delete(goidvTrungTam.Ma);
             this.goiDichVuDVCSService.Save();
-            this.goiDichVuDVCSService.Add(goidvTrungTam.MaTT, goidvTrungTam.lstGoiDichVu);
+            this.goiDichVuDVCSService.Add(goidvTrungTam.Ma, goidvTrungTam.lstGoiDichVu);
             this.goiDichVuDVCSService.Save();
             return request.CreateResponse(HttpStatusCode.OK);
         }

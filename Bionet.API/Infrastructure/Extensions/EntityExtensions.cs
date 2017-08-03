@@ -446,6 +446,7 @@ namespace Bionet.API.Infrastructure.Extensions
             chiDinhDichVu.SoLuong = chiDinhDichVuVM.SoLuong;
             chiDinhDichVu.TrangThai = chiDinhDichVuVM.TrangThai;
             chiDinhDichVu.isNhapLieu = chiDinhDichVuVM.isNhapLieu;
+            chiDinhDichVu.MaTrungTam = chiDinhDichVuVM.MaTrungTam;
 
         }
 

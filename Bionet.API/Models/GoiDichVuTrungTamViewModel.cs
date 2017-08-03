@@ -6,9 +6,9 @@ using System.Web;
 
 namespace Bionet.API.Models
 {
-    public class GoiDichVuTrungTamViewModel
+    public class GoiDichVuTheoDonViViewModel
     {
-        public string MaTT { get; set; }
+        public string Ma { get; set; }
         public List<DanhMucGoiDichVuChung> lstGoiDichVu { get; set; }
     }
 }

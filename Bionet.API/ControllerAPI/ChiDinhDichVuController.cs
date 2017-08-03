@@ -8,6 +8,8 @@ using System.Web.Http;
 using Bionet.API.Infrastructure;
 using Bionet.API.Infrastructure.Extensions;
 using Bionet.Web.Models;
+using Newtonsoft.Json;
+using System.Web;
 
 namespace Bionet.API.ControllerAPI
 {
@@ -80,8 +82,28 @@ namespace Bionet.API.ControllerAPI
 
             return request.CreateResponse(HttpStatusCode.OK);
         }
-        
 
+        [Route("AddUpFromApp")]
+        [HttpPost]
+        public HttpResponseMessage AddUppFromApp(HttpRequestMessage request)
+        {
+            HttpContent requestContent = Request.Content;
+            string jsonContent = requestContent.ReadAsStringAsync().Result;
+            ChiDinhDichVuViewModel chidinhVm = JsonConvert.DeserializeObject<ChiDinhDichVuViewModel>(jsonContent);
+
+            var userName = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
+            var user = userManager.FindByNameAsync(userName).Result;
+
+            if (chidinhVm.MaDonVi.Contains(user.LevelCode) && chidinhVm.MaTrungTam == user.LevelCode)
+            {
+                
+                    return createChiDinh(request, chidinhVm);
+            }
+            else
+            {
+                return request.CreateResponse(HttpStatusCode.BadRequest, "Sai mã trung tâm tại mã chi cục hoặc mã trung tâm");
+            }
+        }
 
     }
 
