@@ -105,7 +105,7 @@ namespace Bionet.API.ControllerAPI
 
             var userName = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
             var lvCode = userManager.FindByNameAsync(userName).Result.LevelCode;
-            if (lvCode == "0")
+            if (lvCode == "0" || lvCode== "1")
             {
                 return request.CreateResponse(HttpStatusCode.OK, this.goiDichVuChungService.GetAll());
             }

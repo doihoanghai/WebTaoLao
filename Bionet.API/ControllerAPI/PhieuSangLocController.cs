@@ -133,9 +133,15 @@ namespace Bionet.API.ControllerAPI
         [Authorize(Roles = "PhieuSangLocEdit")]
         public HttpResponseMessage GetById(HttpRequestMessage request, string id)
         {
+            var userName = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
+            var user = userManager.FindByNameAsync(userName).Result;
             return CreateHttpResponse(request, () =>
             {
                 var model = phieuSangLocService.GetById(id);
+                if(model.TrangThaiPhieu == true && user.LevelCode.ToString().Length > 3)
+                {
+                    return request.CreateResponse(HttpStatusCode.BadRequest, "Không có quyền sửa phiếu đã nhận !!!");
+                }
                 var responseData = Mapper.Map<PhieuSangLoc, PhieuSangLocViewModel>(model);
                 var modelPatient = patientService.GetByMaBN(model.MaBenhNhan);
                 responseData = Mapper.Map<Patient, PhieuSangLocViewModel>(modelPatient, responseData);

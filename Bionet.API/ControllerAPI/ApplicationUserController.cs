@@ -53,7 +53,7 @@ namespace Bionet.API.ControllerAPI
                 int totalRow = 0;
                 var model = _userManager.Users;
                 
-                IEnumerable<ApplicationUserViewModel> modelVm = Mapper.Map<IEnumerable<ApplicationUser>, IEnumerable<ApplicationUserViewModel>>(model.Where(p => p.UserLevel>0));
+                IEnumerable<ApplicationUserViewModel> modelVm = Mapper.Map<IEnumerable<ApplicationUser>, IEnumerable<ApplicationUserViewModel>>(model.Where(p => p.UserLevel<4));
 
                 PaginationSet<ApplicationUserViewModel> pagedSet = new PaginationSet<ApplicationUserViewModel>()
                 {

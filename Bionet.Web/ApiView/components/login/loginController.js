@@ -21,7 +21,7 @@
                              
                             authData.authenticationData.fullName = response.data.FullName;
                             leveluser = response.data.UserLevel;
-                            if (leveluser != 0)
+                            if (leveluser != 4)
                                 $location.path('/admin');
                             else
                                 $location.path('/patient');

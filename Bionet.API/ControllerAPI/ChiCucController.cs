@@ -85,11 +85,13 @@ namespace Bionet.API.ControllerAPI
             return CreateHttpResponse(request, () =>
             {
                 int totalRow = 0;
+                var userName = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
+                var user = userManager.FindByNameAsync(userName).Result;
+
                 IEnumerable<DanhMucChiCuc> model = new List<DanhMucChiCuc>();
-                if (!string.IsNullOrEmpty(MaTT))
-                    model = chiCucService.GetAllByMaTT(MaTT);
-                else
-                    model = chiCucService.GetAllHasCondition(keyword);
+            
+            
+                    model = chiCucService.GetAll(user.LevelCode);
 
                 totalRow = model.Count();
                 var query = model.OrderByDescending(x => x.Stt).Skip(page * pageSize).Take(pageSize);

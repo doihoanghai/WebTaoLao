@@ -16,6 +16,8 @@
                 return 'Chi cục';
             else if (input == 3)
                 return 'Đơn vị cơ sở'
+            else if(input == 0)
+                return 'Tổng cục'
             else
                 return 'N/a';
         }

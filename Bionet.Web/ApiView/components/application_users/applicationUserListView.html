@@ -46,6 +46,7 @@
                     <th>Tài khoản</th>
                     <th>Email</th>
                     <th>Bậc</th>
+                    <th>Mã đơn vị</th>
                     <th style="width:10%"></th>
                 </tr>
             </thead>
@@ -55,6 +56,7 @@
                     <td><a ui-sref="edit_application_user({id:item.Id})">{{item.UserName}}</a></td>
                     <td>{{item.Email}}</td>
                     <td>{{item.UserLevel | statusLevel}}</td>
+                    <td>{{item.LevelCode}}</td>
                     <td>
                         <a ui-sref="edit_application_user({id:item.Id})" class="btn btn-sm btn-primary" title="Chỉnh sửa"><i class="fa fa-pencil"></i></a>
                         <button class="btn btn-sm btn-info" ui-sref="role_application_user({id:item.Id})"  title="Phân quyền"><i class="fa fa-list"></i></button>

@@ -13,10 +13,12 @@
         $scope.addAccount = addAccount;
 
         function addAccount() {
+            debugger;
             apiService.post('/api/applicationUser/add', $scope.account, addSuccessed, addFailed);
         }
 
         function addSuccessed() {
+            
             notificationService.displaySuccess($scope.account.Name + ' đã được thêm mới.');
 
             $location.url('application_users');
@@ -52,6 +54,10 @@
                     str = str.replace(/TenTTSL/g, 'name');
                     $scope.items = JSON.parse(str);
                 });
+            }
+            else if ($scope.account.UserLevel == 0)
+            {
+                $scope.account.LevelCode = "1";
             }
             else {
                 $scope.items = null;
