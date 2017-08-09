@@ -75,6 +75,13 @@ namespace Bionet.API.ControllerAPI
                 var lvCode = userManager.FindByNameAsync(user).Result.LevelCode;
                 var model = this.dichVuService.GetAll();
 
+                if(keyword != null)
+                {
+                    model = model.Where(x => (x.IDDichVu.Contains(keyword)) ||
+                            (x.TenDichVu != null && x.TenDichVu.ToLower().Contains(keyword.ToLower())) ||
+                            (x.TenHienThiDichVu != null && x.TenHienThiDichVu.ToLower().Contains(keyword.ToLower())));
+                }
+
                 totalRow = model.Count();
                 var query = model.OrderByDescending(x => x.IDDichVu).Skip(page * pageSize).Take(pageSize);
                 var nhom = nhomService.GetAll();

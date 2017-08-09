@@ -28,6 +28,8 @@
                 authData.authenticationData.fullname = userInfo.fullName;
                 deferred.resolve(null);
             }, function (err, status) {
+                debugger;
+
                 authData.authenticationData.IsAuthenticated = false;
                 authData.authenticationData.userName = "";
                 authData.authenticationData.fullName = "";
@@ -41,6 +43,7 @@
 
         this.logOut = function () {
             $http.get(apiService.apihost +'api/account/logout').then( function (response) {
+            debugger;
                  
                 userInfo.access_token = null;
                 userInfo = null;

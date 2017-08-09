@@ -54,5 +54,6 @@
         }
 
         $scope.getchicuc();
+
     }
 })(angular.module('bionet.chicuc'));

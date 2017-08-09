@@ -15,6 +15,7 @@ using Bionet.API.Infrastructure.Core;
 using Bionet.Web.Models;
 using Bionet.API.Infrastructure.Extensions;
 using Microsoft.AspNet.Identity;
+using System.Web;
 
 namespace Bionet.API.ControllerAPI
 {
@@ -45,7 +46,7 @@ namespace Bionet.API.ControllerAPI
         [Route("getlistpaging")]
         [HttpGet]
         [Authorize(Roles = "UserList")]
-        public HttpResponseMessage GetListPaging(HttpRequestMessage request, int page, int pageSize, string filter = null)
+        public HttpResponseMessage GetListPaging(HttpRequestMessage request, int page, int pageSize, string keyword = null)
         {
             return CreateHttpResponse(request, () =>
             {
@@ -54,6 +55,13 @@ namespace Bionet.API.ControllerAPI
                 var model = _userManager.Users;
                 
                 IEnumerable<ApplicationUserViewModel> modelVm = Mapper.Map<IEnumerable<ApplicationUser>, IEnumerable<ApplicationUserViewModel>>(model.Where(p => p.UserLevel<4));
+                if(keyword != null)
+                {
+                    modelVm = modelVm.Where(x => (x.UserName.ToLower().Contains(keyword.ToLower())) ||
+                                    (x.FullName != null && x.FullName.ToLower().Contains(keyword.ToLower())) ||
+                                    (x.Email != null && x.Email.Contains(keyword)) ||
+                                    (x.PhoneNumber != null && x.PhoneNumber.Contains(keyword)));
+                }
 
                 PaginationSet<ApplicationUserViewModel> pagedSet = new PaginationSet<ApplicationUserViewModel>()
                 {
@@ -273,6 +281,8 @@ namespace Bionet.API.ControllerAPI
                 return request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
         }
+
+       
 
     }
 }

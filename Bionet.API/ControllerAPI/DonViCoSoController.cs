@@ -77,6 +77,14 @@ namespace Bionet.API.ControllerAPI
                 var lvCode = userManager.FindByNameAsync(user).Result.LevelCode;
                 var model = this.donViCoSoService.GetAll(lvCode);
 
+                if(keyword != null)
+                {
+                    model = model.Where(x => (x.MaDVCS.Contains(keyword)) ||
+                            (x.TenDVCS != null && x.TenDVCS.ToLower().Contains(keyword)) ||
+                            (x.TenBacSiDaiDien != null && x.TenBacSiDaiDien.ToLower().Contains(keyword)) ||
+                            (x.SDTCS != null && x.SDTCS.Contains(keyword)));
+                }
+
                 totalRow = model.Count();
                 var query = model.OrderByDescending(x => x.Stt).Skip(page * pageSize).Take(pageSize);
                 var chicuc = this.chiCucService.GetAll("0");

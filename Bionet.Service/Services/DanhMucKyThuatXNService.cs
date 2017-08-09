@@ -76,7 +76,7 @@ namespace Bionet.Service.Services
         public IEnumerable<DanhMucKyThuatXN> GetAll(string keywork)
         {
             if (!string.IsNullOrEmpty(keywork))
-                return this.dmKyThuatXNRepository.GetMulti(x => x.IDKyThuatXN.Contains(keywork) || x.TenHienThiKyThuat.Contains(keywork) || x.TenKyThuat.Contains(keywork));
+                return this.dmKyThuatXNRepository.GetMulti(x => x.IDKyThuatXN.Contains(keywork) ||(x.TenHienThiKyThuat != null && x.TenHienThiKyThuat.ToLower().Contains(keywork)) || (x.TenKyThuat != null && x.TenKyThuat.ToLower().Contains(keywork.ToLower())) );
             else
                 return this.dmKyThuatXNRepository.GetAll();
         }

@@ -13,6 +13,7 @@ using Bionet.API.Infrastructure;
 using Bionet.API.Infrastructure.Core;
 using Bionet.API.Infrastructure.Extensions;
 using Bionet.Web.Models;
+using System.Web;
 
 namespace Bionet.API.ControllerAPI
 {
@@ -21,11 +22,13 @@ namespace Bionet.API.ControllerAPI
     public class ApplicationRoleController : ApiControllerBase
     {
         private IApplicationRoleService _appRoleService;
+        private ApplicationUserManager _userManager;
 
         public ApplicationRoleController(IErrorService errorService,
-            IApplicationRoleService appRoleService) : base(errorService)
+            IApplicationRoleService appRoleService,ApplicationUserManager userManager) : base(errorService)
         {
             _appRoleService = appRoleService;
+            _userManager = userManager;
         }
 
         [Route("getlistpaging")]
@@ -203,5 +206,37 @@ namespace Bionet.API.ControllerAPI
                 return response;
             });
         }
+
+        //[HttpGet]
+        //[Route("getMenu")]
+        //public HttpResponseMessage getMenu(HttpRequestMessage request)
+        //{
+        //    var userName = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
+        //    var user = _userManager.FindByNameAsync(userName).Result;
+
+        //    var roles = _appRoleService.GetListRoleByUser(user.Id);
+
+        //    List<int> respone = new List<int>();
+
+        //    foreach (var role in roles)
+        //    {
+        //        if(role.Name.Contains(""))
+        //        {
+        //            if(!respone.Contains(1))
+        //            {
+        //                respone.Add(1);
+        //            }
+        //        }
+        //        else if (role.Name.Contains(""))
+        //        {
+        //            if (!respone.Contains(1))
+        //            {
+        //                respone.Add(1);
+        //            }
+        //        }
+              
+
+        //    }
+        //}
     }
 }

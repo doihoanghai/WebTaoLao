@@ -47,6 +47,8 @@ namespace Bionet.Web.ControllerAPI
                 HttpResponseMessage response = null;
                 int totalRow = 0;
                 var model = _appGroupService.GetAll(page, pageSize, out totalRow, filter).OrderByDescending(x => x.ID);
+           
+
                 IEnumerable<ApplicationGroupViewModel> modelVm = Mapper.Map<IEnumerable<ApplicationGroup>, IEnumerable<ApplicationGroupViewModel>>(model);
 
                 PaginationSet<ApplicationGroupViewModel> pagedSet = new PaginationSet<ApplicationGroupViewModel>()

@@ -134,7 +134,14 @@ namespace Bionet.API.ControllerAPI
                 int totalRow = 0;
                 var user = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
                 var lvCode = userManager.FindByNameAsync(user).Result.LevelCode;
-                var model = this.goiDichVuChungService.GetAll();
+                
+                 var    model = this.goiDichVuChungService.GetAll();
+                
+                if(keyword != null)
+                {
+                    model = model.Where(x => (x.IDGoiDichVuChung.Contains(keyword)) ||
+                            (x.TenGoiDichVuChung != null && x.TenGoiDichVuChung.ToLower().Contains(keyword)));
+                }
 
                 totalRow = model.Count();
                 var query = model.OrderByDescending(x => x.RowIDGoiDichVuChung).Skip(page * pageSize).Take(pageSize);

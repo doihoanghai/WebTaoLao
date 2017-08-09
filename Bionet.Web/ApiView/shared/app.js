@@ -43,7 +43,7 @@
                 url: "/admin",
                 parent: 'base',
                 templateUrl: "/ApiView/components/home/homeView.html",
-                controller: "homeController"
+                controller: "rootController"
             })
             .state('patient', {
                 url: "/patient",

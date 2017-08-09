@@ -28,14 +28,15 @@
                         </button>
                         <ul class="dropdown-menu-v2" role="menu">
                             <li>
-                                <a href="page_user_profile_1.html">
-                                    <i class="icon-user"></i> {{authentication.fullName}}
+                                <a href="">
+                                    <i class="icon-user"></i > {{authentication.fullName}}
                                 </a>
                             </li>
                             <li>
-                                <a href="#" ng-click="logOut()" >
+                                <a href="#" ng-click="logOut()" ng-controller="homeController" >
                                     <i class="icon-key"></i> Đăng xuất
                                 </a>
+                                
                             </li>
                         </ul>
                     </div>
@@ -78,10 +79,10 @@
                             <span class="title" >Trang chủ</span>
                         </a>
                     </li>
-                    <li class="heading">
+                    <li class="heading" ng-if="authentication.leveluser==1 ||authentication.leveluser== 3 ">
                         <h3 class="uppercase">Nghiệp vụ</h3>
                     </li>
-                    <li class="nav-item  ">
+                    <li class="nav-item" ng-if="authentication.leveluser==1 ||authentication.leveluser== 3 ">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-user"></i>
                             <span class="title">Nghiệp vụ</span>
@@ -100,10 +101,10 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="heading">
+                    <li class="heading" ng-if="authentication.leveluser==1 ||authentication.leveluser== 0 ">
                         <h3 class="uppercase">Quản trị</h3>
                     </li>
-                    <li class="nav-item  ">
+                    <li class="nav-item" ng-if="authentication.leveluser== 0 ">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-user"></i>
                             <span class="title">Quản lý thành viên</span>
@@ -127,7 +128,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item  ">
+                    <li class="nav-item  " ng-if="authentication.leveluser==1 || authentication.leveluser== 0 ">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-wallet"></i>
                             <span class="title">Danh mục</span>
@@ -185,8 +186,8 @@
                                 </a>
                             </li>
                             
-                            <li class="nav-item  ">
-                                <a ui-sref="chuongtrinh" class="nav-link ">
+                            <li class="nav-item  " ng-if="authentication.leveluser== 0 ">
+                                <a ui-sref="chuongtrinh" class="nav-link " >
                                     <span class="title">Chương trình</span>
                                 </a>
                             </li>
@@ -236,6 +237,7 @@
         <a href="#index" class="go2top">
             <i class="icon-arrow-up"></i>
         </a>
+        
         <!-- END FOOTER -->
     </div>
 </div>
@@ -251,6 +253,13 @@
             $(this).closest('li').addClass('active open');
         }
     });
+    
+
+    //function loadMenu()
+    //{
+    //    debugger;
+    //    alert(authentication.fullName);
+    //}
 
 </script>
 

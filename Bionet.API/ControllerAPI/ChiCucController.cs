@@ -87,12 +87,15 @@ namespace Bionet.API.ControllerAPI
                 int totalRow = 0;
                 var userName = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
                 var user = userManager.FindByNameAsync(userName).Result;
-
-                IEnumerable<DanhMucChiCuc> model = new List<DanhMucChiCuc>();
+                
             
-            
-                    model = chiCucService.GetAll(user.LevelCode);
-
+                var model = chiCucService.GetAll(user.LevelCode);
+                if(keyword != null)
+                {
+                    model = model.Where(x => x.MaChiCuc.ToLower().Contains(keyword.ToLower()) ||
+                        (x.TenChiCuc != null && x.TenChiCuc.ToLower().Contains(keyword.ToLower())) ||
+                        (x.SdtChiCuc != null && x.SdtChiCuc.Contains(keyword)) ); 
+                }
                 totalRow = model.Count();
                 var query = model.OrderByDescending(x => x.Stt).Skip(page * pageSize).Take(pageSize);
                 var trungtam = this.trungTamService.GetAll();
