@@ -28,6 +28,7 @@ namespace Bionet.Service.Services
     public class DanhGiaChatLuongService : IDanhGiaChatLuongService
     {
         private IDanhMucDanhGiaChatLuongMauRepository danhGiaChatLuongRepository;
+      
         private IUnitOfWork unitOfWork;
 
         public DanhGiaChatLuongService(IDanhMucDanhGiaChatLuongMauRepository _danhGiaChatLuongRepository, IUnitOfWork _unitOfWork)
