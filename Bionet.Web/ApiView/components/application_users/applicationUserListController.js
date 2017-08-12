@@ -11,6 +11,7 @@
         $scope.page = 0;
         $scope.pageCount = 0;
         $scope.search = search;
+        $scope.keyword = '';
         $scope.clearSearch = clearSearch;
         $scope.deleteItem = deleteItem;
 
@@ -39,10 +40,10 @@
                 params: {
                     page: page,
                     pageSize: 10,
-                    filter: $scope.filterExpression
+                    keyword: $scope.keyword
                 }
             }
-
+            debugger;
             apiService.get('api/applicationUser/getlistpaging', config, dataLoadCompleted, dataLoadFailed);
         }
 
@@ -62,7 +63,7 @@
         }
 
         function clearSearch() {
-            $scope.filterExpression = '';
+            $scope.keyword = '';
             search();
         }
 

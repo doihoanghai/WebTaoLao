@@ -18,8 +18,8 @@ namespace Bionet.Web.Models
         [MaxLength(15)]
         public string MaChiCuc { get; set; }
 
-        [Column(TypeName = "nchar")]
-        [MaxLength(10)]
+        [Column(TypeName = "nvarchar")]
+        [MaxLength(200)]
         public string TenChiCuc { get; set; }
 
         [MaxLength(200)]

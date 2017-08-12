@@ -17,7 +17,7 @@ using Newtonsoft.Json;
 namespace Bionet.API.ControllerAPI
 {
     [RoutePrefix("api/trungtamsangloc")]
-//    [Authorize]
+    [Authorize]
     public class TrungTamController : ApiControllerBase
     {
         private ITrungTamService trungTamService;
@@ -104,6 +104,12 @@ namespace Bionet.API.ControllerAPI
                 else
                 {
                     var model =trungTamService.GetAll(lvCode);
+
+                    if(keyword != null)
+                    {
+                        model = model.Where(x => x.MaTTSL.ToLower().Contains(keyword.ToLower()) || (x.TenTTSL != null && x.TenTTSL.ToLower().Contains(keyword)) || (x.SDTTTSL != null && x.SDTTTSL.Contains(keyword)));
+                    }
+            
                     totalRow = model.Count();
                     var query = model.OrderBy(x => x.Stt).Skip(page * pageSize).Take(pageSize);
                     var responseData = Mapper.Map<IEnumerable<DanhMucTrungTamSangLoc>, IEnumerable<DanhMucTrungTamSangLocViewModel>>(query);

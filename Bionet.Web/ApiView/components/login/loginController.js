@@ -20,6 +20,7 @@
                         apiService.get(url,null,function (response) {
                              
                             authData.authenticationData.fullName = response.data.FullName;
+                            authData.authenticationData.leveluser = response.data.UserLevel;
                             leveluser = response.data.UserLevel;
                             debugger;
                             if (leveluser != 4)

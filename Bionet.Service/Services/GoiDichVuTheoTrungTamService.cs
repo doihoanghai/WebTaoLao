@@ -55,7 +55,7 @@ namespace Bionet.Service.Services
 
         public IEnumerable<DanhMucGoiDichVuTrungTam> GetAll()
         {
-            throw new NotImplementedException();
+            return this.goiDichVuTheoTrungTamRepository.GetAll();
         }
 
         public IEnumerable<DanhMucGoiDichVuTrungTam> getAllTheoMaTT(string maTT)

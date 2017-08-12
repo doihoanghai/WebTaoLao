@@ -79,13 +79,13 @@ namespace Bionet.API.ControllerAPI
                     string path = HttpContext.Current.Server.MapPath("~/KetQuaXetNghiem/");
                     path += mabenhnhan;
                     Directory.CreateDirectory(path);
-                    file.SaveAs(path + file.FileName);
+                    file.SaveAs(path + "\\" + file.FileName);
                 }
 
                 return Request.CreateResponse(HttpStatusCode.Created);
             }
-
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
+            else
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
         [Route("getFileKQ")]

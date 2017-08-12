@@ -80,7 +80,7 @@ namespace Bionet.Service.Services
         {
             var query = _appRoleRepository.GetAll();
             if (!string.IsNullOrEmpty(filter))
-                query = query.Where(x => x.Description.Contains(filter) || x.Name.Contains(filter));
+                query = query.Where(x => (x.Description !=null && x.Description.ToLower().Contains(filter.ToLower())) || x.Name.ToLower().Contains(filter.ToLower()));
 
             totalRow = query.Count();
             return query.OrderBy(x => x.Description).Skip(page * pageSize).Take(pageSize);

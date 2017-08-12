@@ -85,7 +85,7 @@
         function Update() {
              
             $scope.GoiDichVudonvicoso.lstGoiDichVu = $scope.serviceDetail;
-            $scope.GoiDichVudonvicoso.MaTT = $scope.maDVCS;
+            $scope.GoiDichVudonvicoso.Ma = $scope.maDVCS;
             apiService.post('api/goidichvuchung/UpdateGoiDVDVCS', $scope.GoiDichVudonvicoso, function (result) {
                 notificationService.displaySuccess('Cập nhật gói dịch vụ đơn vị thành công!');
 

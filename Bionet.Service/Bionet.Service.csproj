@@ -63,6 +63,7 @@
     <Compile Include="Services\ApplicationUserRoleService.cs" />
     <Compile Include="Services\BenhNhanNguyCoCaoService.cs" />
     <Compile Include="Services\ChiDinhDichVuService.cs" />
+    <Compile Include="Services\ChiTietDanhGiaChatLuongService.cs" />
     <Compile Include="Services\ChiTietGoiDichVu.cs" />
     <Compile Include="Services\DanhGiaChatLuongService.cs" />
     <Compile Include="Services\DanhMucChauLucService.cs" />

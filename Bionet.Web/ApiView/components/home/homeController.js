@@ -1,8 +1,11 @@
 ﻿(function (app) {
     app.controller('homeController', homeController);
-    
-    function homeController() {
-        
+
+    homeController.$inject = ['authData','$scope', 'authenticationService'];
+
+    function homeController(authData,$scope,authenticationService) {
+        $scope.authentication = authData.authenticationData;
+
     }
 
 })(angular.module('bionet'));

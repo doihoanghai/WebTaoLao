@@ -86,9 +86,8 @@
         }
         function Update()
         {
-             
             $scope.goiDVtrungtam.lstGoiDichVu = $scope.serviceDetail;
-            $scope.goiDVtrungtam.maTT = $scope.maTT;
+            $scope.goiDVtrungtam.Ma = $scope.maTT;
             apiService.post('api/goidichvuchung/UpdateGoiDVTT', $scope.goiDVtrungtam, function (result) {
                 notificationService.displaySuccess('Cập nhật gói dịch vụ trung tâm thành công!');
 

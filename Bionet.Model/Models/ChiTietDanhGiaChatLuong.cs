@@ -20,5 +20,19 @@ namespace Bionet.Web.Models
 
         [MaxLength(5)]
         public string IDDanhGiaChatLuongMau { get; set; }
+
+        [MaxLength(38)]
+        public string MaTiepNhan { get; set; }
+
+        [MaxLength(100)]
+        public string TenLyDo { get; set; }
+
+        [MaxLength(15)]
+        public string MaDonVi { get; set; }
+
+        [MaxLength(3)]
+        public string MaTrungTam { get; set; }
+
+        public bool? isXoa { get; set; }
     }
 }

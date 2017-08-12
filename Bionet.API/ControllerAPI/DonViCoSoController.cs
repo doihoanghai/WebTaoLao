@@ -23,12 +23,16 @@ namespace Bionet.API.ControllerAPI
         private IDonViCoSoService donViCoSoService;
         private IDanhMucChiCucService chiCucService;
         private ApplicationUserManager userManager;
+        private IGoiDichVuTheoTrungTamService goidvtheotrungtamService;
+        private IGoiDichVuDVCSService goidvtheodvcsService;
 
-        public DonViCoSoController(IErrorService errorService, IDonViCoSoService _donViCoSoService, IDanhMucChiCucService _chiCucService, ApplicationUserManager _userManager) : base(errorService)
+        public DonViCoSoController(IErrorService errorService, IDonViCoSoService _donViCoSoService, IDanhMucChiCucService _chiCucService, ApplicationUserManager _userManager, IGoiDichVuDVCSService _goidvtheodvcsService,IGoiDichVuTheoTrungTamService _goidctheotrungtamService) : base(errorService)
         {
             this.donViCoSoService = _donViCoSoService;
             this.chiCucService = _chiCucService;
             this.userManager = _userManager;
+            this.goidvtheodvcsService = _goidvtheodvcsService;
+            this.goidvtheotrungtamService = _goidctheotrungtamService;
         }
 
         [Route("getbyid/{id:int}")]
@@ -76,6 +80,14 @@ namespace Bionet.API.ControllerAPI
 
                 var lvCode = userManager.FindByNameAsync(user).Result.LevelCode;
                 var model = this.donViCoSoService.GetAll(lvCode);
+
+                if(keyword != null)
+                {
+                    model = model.Where(x => (x.MaDVCS.Contains(keyword)) ||
+                            (x.TenDVCS != null && x.TenDVCS.ToLower().Contains(keyword)) ||
+                            (x.TenBacSiDaiDien != null && x.TenBacSiDaiDien.ToLower().Contains(keyword)) ||
+                            (x.SDTCS != null && x.SDTCS.Contains(keyword)));
+                }
 
                 totalRow = model.Count();
                 var query = model.OrderByDescending(x => x.Stt).Skip(page * pageSize).Take(pageSize);
@@ -158,6 +170,12 @@ namespace Bionet.API.ControllerAPI
                     donViCoSoService.Add(newDonVi);
                     donViCoSoService.Save();
 
+                    
+                    var gdv = goidvtheotrungtamService.getAllTheoMaTT(newDonVi.MaDVCS.Substring(0, 3));
+                    var gdvdvcs = Mapper.Map<IEnumerable<DanhMucGoiDichVuTrungTam>, IEnumerable<DanhMucGoiDichVuChung>>(gdv);
+
+                    goidvtheodvcsService.Add(newDonVi.MaDVCS, gdvdvcs.ToList());
+                    goidvtheodvcsService.Save();
                     var responseData = Mapper.Map<DanhMucDonViCoSo, DanhMucDonViCoSoViewModel>(newDonVi);
                     response = request.CreateResponse(HttpStatusCode.Created, responseData);
                 }

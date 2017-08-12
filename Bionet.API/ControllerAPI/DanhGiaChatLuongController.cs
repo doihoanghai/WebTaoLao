@@ -4,16 +4,11 @@ using Bionet.Service.Services;
 using Bionet.API.Infrastructure;
 using Bionet.API.Infrastructure.Core;
 using Bionet.API.Infrastructure.Extensions;
-using Bionet.API.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Bionet.API.Infrastructure;
-using Bionet.API.Infrastructure.Core;
-using Bionet.API.Models;
 using Bionet.Web.Models;
 
 namespace Bionet.API.ControllerAPI
@@ -23,9 +18,11 @@ namespace Bionet.API.ControllerAPI
     public class DanhGiaChatLuongController : ApiControllerBase
     {
         private IDanhGiaChatLuongService danhGiaChatLuongService;
-        public DanhGiaChatLuongController(IErrorService errorService, IDanhGiaChatLuongService _danhGiaChatLuongService) : base(errorService)
+        private IChiTietDanhGiaChatLuongService ctDanhGiaChatLuongService;
+        public DanhGiaChatLuongController(IErrorService errorService, IDanhGiaChatLuongService _danhGiaChatLuongService,IChiTietDanhGiaChatLuongService _ctDanhGiaChatLuongService) : base(errorService)
         {
             this.danhGiaChatLuongService = _danhGiaChatLuongService;
+            this.ctDanhGiaChatLuongService = _ctDanhGiaChatLuongService;
         }
 
         [Route("getbyid/{id:int}")]
@@ -170,5 +167,20 @@ namespace Bionet.API.ControllerAPI
                 return response;
             });
         }
+
+        [Route("AddUpChiTiet")]
+        public HttpResponseMessage AppUpChiTiet(HttpRequestMessage request,ChiTietDanhGiaChatLuong ctdg)
+        {
+            if (ctdg.isXoa == true)
+                this.ctDanhGiaChatLuongService.Delete(ctdg.MaTiepNhan,ctdg.IDPhieu);
+            else
+                this.ctDanhGiaChatLuongService.AddUp(ctdg);
+
+            this.ctDanhGiaChatLuongService.Save();
+
+            return request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        
     }
 }
