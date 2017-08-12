@@ -21,6 +21,7 @@
                              
                             authData.authenticationData.fullName = response.data.FullName;
                             leveluser = response.data.UserLevel;
+                            debugger;
                             if (leveluser != 4)
                                 $location.path('/admin');
                             else
