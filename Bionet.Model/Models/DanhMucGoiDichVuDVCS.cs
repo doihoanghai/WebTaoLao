@@ -20,7 +20,7 @@ namespace Bionet.Web.Models
         public string IDGoiDichVuChung { get; set; }
 
         [MaxLength(50)]
-        public string TenGoiDichVuChung { get; set; }
+        public string TenGoiDichVuTrungTam { get; set; }
 
 
         public decimal? DonGia { get; set; }

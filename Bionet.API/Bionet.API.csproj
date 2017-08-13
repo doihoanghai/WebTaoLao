@@ -253,6 +253,7 @@
     <Compile Include="ControllerAPI\EmployeeController.cs" />
     <Compile Include="ControllerAPI\GoiDichVuChungController.cs" />
     <Compile Include="ControllerAPI\HomeController.cs" />
+    <Compile Include="ControllerAPI\MapsDichVuKyThuatController.cs" />
     <Compile Include="ControllerAPI\MapsXNThongSoController.cs" />
     <Compile Include="ControllerAPI\NhomController.cs" />
     <Compile Include="ControllerAPI\PatientController.cs" />
@@ -287,6 +288,8 @@
     <Compile Include="Models\DanhMucThongSoXNViewModel.cs" />
     <Compile Include="Models\DanhMucTrungTamSangLocViewModel.cs" />
     <Compile Include="Models\GoiDichVuTrungTamViewModel.cs" />
+    <Compile Include="Models\KyThuatXNMapViewModel.cs" />
+    <Compile Include="Models\MapsDichVuKyThuatViewModel.cs" />
     <Compile Include="Models\MapsXetNghiem_ThongSoViewModel.cs" />
     <Compile Include="Models\Patient_XN_ListTraKQChiTietViewModel.cs" />
     <Compile Include="Models\Patient_XN_TraKQ_ChiTietViewModel.cs" />

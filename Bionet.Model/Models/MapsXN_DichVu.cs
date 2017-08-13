@@ -21,5 +21,9 @@ namespace Bionet.Web.Models
 
         [MaxLength(15)]
         public string IDKyThuatXN { get; set; }
+
+        [MaxLength(50)]
+        public string TenKyThuat { get; set; }
+
     }
 }

@@ -22,12 +22,14 @@
         this.init = function () {
             var tokenInfo = localStorageService.get("TokenInfo");
             if (tokenInfo) {
+                debugger;
                 tokenInfo = JSON.parse(tokenInfo);
                 authData.authenticationData.IsAuthenticated = true;
                 authData.authenticationData.userName = tokenInfo.userName;
                 authData.authenticationData.fullName = tokenInfo.fullName;
                 authData.authenticationData.accessToken = tokenInfo.accessToken;
                 authData.authenticationData.timeToken = $filter('date')(tokenInfo.timeToken, 'yyyy-MM-dd HH:mm:ss');
+                
             }
         }
 

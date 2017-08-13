@@ -15,6 +15,8 @@ namespace Bionet.Service.Services
 
         IEnumerable<DanhMucGoiDichVuDVCS> GetAllTheoMaDonVi(string lvCode);
 
+        DanhMucGoiDichVuDVCS GetSingle(string MaDVCS, string IDGoiDVChung);
+
         void delete(string madv);
 
         void Add(string MaDVCS, List<DanhMucGoiDichVuChung> lstGDV);
@@ -40,7 +42,7 @@ namespace Bionet.Service.Services
 
         public void Add(DanhMucGoiDichVuDVCS goidv)
         {
-            throw new NotImplementedException();
+            this.goiDichVuDVCSRepository.Add(goidv);
         }
 
         public void Add(string MaDVCS, List<DanhMucGoiDichVuChung> lstGDV)
@@ -49,7 +51,7 @@ namespace Bionet.Service.Services
             {
                 DanhMucGoiDichVuDVCS gdvdv = new DanhMucGoiDichVuDVCS();
 
-                gdvdv.TenGoiDichVuChung = a.TenGoiDichVuChung;
+                gdvdv.TenGoiDichVuTrungTam = a.TenGoiDichVuChung;
                 gdvdv.RowIDGoiDichVuTrungTam = a.RowIDGoiDichVuChung;
                 gdvdv.IDGoiDichVuChung = a.IDGoiDichVuChung;
                 gdvdv.DonGia = a.DonGia;
@@ -85,6 +87,11 @@ namespace Bionet.Service.Services
         public IEnumerable<DanhMucGoiDichVuDVCS> GetAllTheoMaDonVi(string lvCode)
         {
             return this.goiDichVuDVCSRepository.GetMulti(x => x.MaDVCS.StartsWith(lvCode));
+        }
+
+        public DanhMucGoiDichVuDVCS GetSingle(string MaDVCS, string IDGoiDVChung)
+        {
+            return this.goiDichVuDVCSRepository.GetSingleByCondition(x => x.MaDVCS == MaDVCS && x.IDGoiDichVuChung == IDGoiDVChung);
         }
 
         public void Save()

@@ -73,6 +73,7 @@ hostapi = clinic[0].getElementsByTagName("host")[0].firstChild.data;
             }, function (error) {
                 console.log(error.status)
                 if (error.status === 401) {
+                    debugger;
                     var dateToken = new Date(authData.authenticationData.timeToken);
                     var dateNow = new Date();
                     if (authData.authenticationData.IsAuthenticated == true && authData.authenticationData.userName != '') {

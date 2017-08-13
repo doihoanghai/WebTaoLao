@@ -7,9 +7,11 @@
         $scope.logOut = function () {
 
             loginService.logOut();
-            $window.location.href = '/admin';
-            $window.reload();
+            $window.location.href = '#';
+            $window.location.reload();
         }
+        debugger;
+        
         $scope.authentication = authData.authenticationData;
 
 

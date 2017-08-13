@@ -33,7 +33,8 @@
             .state('base', {
                 url: '',
                 templateUrl: '/ApiView/shared/views/baseView.html',
-                abstract: true
+                abstract: true,
+                controller : "rootController"
             }).state('login', {
                 url: "/login",
                 templateUrl: "/ApiView/components/login/loginView.html",

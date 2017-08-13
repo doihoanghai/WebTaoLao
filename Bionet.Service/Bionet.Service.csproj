@@ -81,6 +81,7 @@
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\ErrorService.cs" />
     <Compile Include="Services\GoiDichVuChungService.cs" />
+    <Compile Include="Services\MapsDichVuKyThuatService.cs" />
     <Compile Include="Services\MapXNThongSoService.cs" />
     <Compile Include="Services\NhomService.cs" />
     <Compile Include="Services\PatientService.cs" />

@@ -10,6 +10,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Bionet.Web.Models;
+using System.Web;
 
 namespace Bionet.API.ControllerAPI
 {
@@ -19,10 +20,12 @@ namespace Bionet.API.ControllerAPI
     {
         private IDanhGiaChatLuongService danhGiaChatLuongService;
         private IChiTietDanhGiaChatLuongService ctDanhGiaChatLuongService;
-        public DanhGiaChatLuongController(IErrorService errorService, IDanhGiaChatLuongService _danhGiaChatLuongService,IChiTietDanhGiaChatLuongService _ctDanhGiaChatLuongService) : base(errorService)
+        private ApplicationUserManager userManager;
+        public DanhGiaChatLuongController(IErrorService errorService, IDanhGiaChatLuongService _danhGiaChatLuongService,IChiTietDanhGiaChatLuongService _ctDanhGiaChatLuongService,ApplicationUserManager _userManager) : base(errorService)
         {
             this.danhGiaChatLuongService = _danhGiaChatLuongService;
             this.ctDanhGiaChatLuongService = _ctDanhGiaChatLuongService;
+            this.userManager = _userManager;
         }
 
         [Route("getbyid/{id:int}")]
@@ -171,11 +174,23 @@ namespace Bionet.API.ControllerAPI
         [Route("AddUpChiTiet")]
         public HttpResponseMessage AppUpChiTiet(HttpRequestMessage request,ChiTietDanhGiaChatLuong ctdg)
         {
+            var user = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
+            var lvCode = userManager.FindByNameAsync(user).Result.LevelCode;
+            if (lvCode.Length > 3)
+            {
+                return request.CreateResponse(HttpStatusCode.BadRequest, "Không có quyền thêm (chỉnh sửa) chi tiết đánh giá chất lượng mẫu");
+            }
             if (ctdg.isXoa == true)
-                this.ctDanhGiaChatLuongService.Delete(ctdg.MaTiepNhan,ctdg.IDPhieu);
+            {
+                this.ctDanhGiaChatLuongService.Delete(ctdg.MaTiepNhan, ctdg.IDPhieu);
+            }
             else
-                this.ctDanhGiaChatLuongService.AddUp(ctdg);
+            {
+                
 
+                ctdg.MaTrungTam = lvCode;
+                this.ctDanhGiaChatLuongService.AddUp(ctdg);
+            }
             this.ctDanhGiaChatLuongService.Save();
 
             return request.CreateResponse(HttpStatusCode.OK);

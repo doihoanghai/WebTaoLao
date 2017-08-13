@@ -41,7 +41,10 @@ namespace Bionet.API.Mappings
                 cfg.CreateMap<MapsXN_ThongSo, ThongSoKyThuatViewModel>();
                 cfg.CreateMap<DanhMucThongSoXN, ThongSoKyThuatViewModel>();
                 cfg.CreateMap<DanhMucGoiDichVuTrungTam, DanhMucGoiDichVuChung>();
-                
+                cfg.CreateMap<MapsXN_DichVu, KyThuatXNMapViewModel>();
+                cfg.CreateMap<DanhMucKyThuatXN, KyThuatXNMapViewModel>();
+
+
             });
         }
 

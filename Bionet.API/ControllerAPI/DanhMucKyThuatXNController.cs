@@ -28,6 +28,15 @@ namespace Bionet.API.ControllerAPI
 
       
 
+        [Route("getMapsKyThuat")]
+        [HttpGet]
+        public HttpResponseMessage getmap(HttpRequestMessage request)
+        {
+            var model = dmKyThuatXNService.GetAll();
+            var responseData = Mapper.Map<IEnumerable<DanhMucKyThuatXN>,IEnumerable<KyThuatXNMapViewModel>>(model);
+            return request.CreateResponse(HttpStatusCode.OK, responseData);
+        }
+
         [Route("getbyid/{id:int}")]
         [HttpGet]
 

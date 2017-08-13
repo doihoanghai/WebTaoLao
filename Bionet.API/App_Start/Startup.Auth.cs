@@ -36,7 +36,7 @@ namespace Bionet.API.App_Start
             {
                 TokenEndpointPath = new PathString("/oauth/token"),
                 Provider = new AuthorizationServerProvider(),
-                AccessTokenExpireTimeSpan = TimeSpan.FromHours(2),
+                AccessTokenExpireTimeSpan = TimeSpan.FromHours(4),
                 AllowInsecureHttp = true,
             });
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());

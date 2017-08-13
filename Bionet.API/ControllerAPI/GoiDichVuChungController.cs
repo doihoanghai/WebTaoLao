@@ -249,18 +249,32 @@ namespace Bionet.API.ControllerAPI
         {
             HttpContent requestContent = Request.Content;
             string jsonContent = requestContent.ReadAsStringAsync().Result;
-            GoiDichVuTheoDonViViewModel goidvdvcsVm = JsonConvert.DeserializeObject<GoiDichVuTheoDonViViewModel>(jsonContent);
+            DanhMucGoiDichVuDVCS goidvdvcsVm = JsonConvert.DeserializeObject<DanhMucGoiDichVuDVCS>(jsonContent);
 
             var userName = HttpContext.Current.GetOwinContext().Authentication.User.Identity.Name;
             var user = userManager.FindByNameAsync(userName).Result;
 
-            if (goidvdvcsVm.Ma.Contains(user.LevelCode))
+            if (goidvdvcsVm.MaDVCS.Contains(user.LevelCode))
             {
-                return updateGoiDVTT(request,goidvdvcsVm);
+                var term =  goiDichVuDVCSService.GetSingle(goidvdvcsVm.MaDVCS, goidvdvcsVm.IDGoiDichVuChung);
+                if(term == null)
+                {
+                    goiDichVuDVCSService.Add(goidvdvcsVm);
+                }
+                else
+                {
+                    var rowId = term.RowIDGoiDichVuTrungTam;
+                    term = goidvdvcsVm;
+                    term.RowIDGoiDichVuTrungTam = rowId;
+
+                    goiDichVuDVCSService.Update(term);
+                }
+                goiDichVuDVCSService.Save();
+                return request.CreateResponse(HttpStatusCode.OK);
             }
             else
             {
-                return request.CreateResponse(HttpStatusCode.BadRequest, "Sai mã trung tâm tại mã chi cục hoặc mã trung tâm");
+                return request.CreateResponse(HttpStatusCode.NotAcceptable, "Không có quyền sửa hoặc update "+ goidvdvcsVm.MaDVCS);
             }
         }
 

@@ -20,7 +20,7 @@ namespace Bionet.Service.Services
 
         DanhMucDichVuTheoDonVi GetById(int id);
 
-        void Add(DanhMucDichVuTheoDonVi DanhMucDichVuTheoDonVi);
+        void AddUp(DanhMucDichVuTheoDonVi DanhMucDichVuTheoDonVi);
 
         void Update(DanhMucDichVuTheoDonVi DanhMucDichVuTheoDonVi);
 
@@ -39,9 +39,22 @@ namespace Bionet.Service.Services
             this._unitOfWork = unitOfWork;
         }
 
-        public void Add(DanhMucDichVuTheoDonVi DanhMucDichVuTheoDonVi)
+        public void AddUp(DanhMucDichVuTheoDonVi danhmucdvtheodv)
         {
-            throw new NotImplementedException();
+            var dvtheodv = this._DanhMucDichVuTheoDonViRepository.GetSingleByCondition(x => x.IDDichVu == danhmucdvtheodv.IDDichVu && x.MaDonVi == danhmucdvtheodv.MaDonVi);
+            if (dvtheodv == null)
+            {
+                this._DanhMucDichVuTheoDonViRepository.Add(danhmucdvtheodv);
+            }
+            else
+            {
+                var term = dvtheodv.RowIDDichVuTheoDonVi;
+                DanhMucDichVuTheoDonVi newdmdv = new DanhMucDichVuTheoDonVi();
+                newdmdv = dvtheodv;
+                newdmdv.RowIDDichVuTheoDonVi = term;
+
+                this._DanhMucDichVuTheoDonViRepository.Update(newdmdv);
+            }
         }
 
    
